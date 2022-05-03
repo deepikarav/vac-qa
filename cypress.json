@@ -1,0 +1,8 @@
+{
+  "defaultCommandTimeout": 8000,
+  "reporter":"mochawesome",
+  "env": {
+    "url": "d1jr3nj4xq8ooe.cloudfront.net/en/"
+  },
+  "projectId": "tuhfw1"
+}
