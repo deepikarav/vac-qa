@@ -11,10 +11,10 @@ https://docs.cypress.io/guides/getting-started/installing-cypress
 # 2. Clone this repo
 
 ## clone this repo to a local directory
-git clone https://git-codecommit.ca-central-1.amazonaws.com/v1/repos/jl-vac-qa
+git clone https://git-codecommit.ca-central-1.amazonaws.com/v1/repos/VAC-QA
 
 ## cd into the cloned repo
-cd jl-vac-qa
+cd VAC-QA
 
 ## install the node_modules & install all dependencies from the root directory
 npm install
