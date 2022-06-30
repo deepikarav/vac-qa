@@ -7,6 +7,16 @@
   "declinePageHeaderFr" : " ** fr ** EMPTY 'TermsConditions.declineTitle' ",
   "declinePageUrl":"/en/termsconditions-decline",
   "termsAndConditionsPageUrl":"/fr/termsconditions",
+
+  "loginPageTitleEn" : "Welcome to VAC Login Portal",
+  "loginEmail" : "deepalisagi91@gmail.com",
+  "loginPassword" :"Test123$$", 
+  "loginVerificationCode" : "101010",
+  "signUpPageTitleEn" : "Sign up to manage your existing applications",
+  "signUpEmail" : "@gmail.com",
+  "signUpPassword" : "Qwe123$$",
+  "signUpVerificationCode" : "101010",
+  
   "contactInformationPageHeader":" Contact Info ",
   "poBox":123,
   "aptUnit":45,
@@ -20,4 +30,5 @@
   "dialCode":"1",
   "telephoneNumber":"5213459000",
   "extension":"21"
+
 }

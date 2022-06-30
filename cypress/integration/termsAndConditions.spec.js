@@ -1,4 +1,3 @@
-///<reference types="Cypress"/>
 
 import TermsAndConditionsPage from "../support/pageObjects/TermsAndConditionsPage.js"
 import DeclinePage from "../support/pageObjects/DeclinePage.js"
@@ -17,7 +16,6 @@ describe('Test Suite', function()
         })
         
     })
-
 
     it('Terms and Conditions Test', function()
     {
