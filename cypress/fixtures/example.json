@@ -1,8 +1,8 @@
 {
   "termsAndConditionsPageHeaderEn" : " Terms and Conditions ",
-  "termsAndConditionsPageHeaderFr" : " Avis ",
+  "termsAndConditionsPageHeaderFr" : " Termes et conditions ",
   "acceptButtonFr" : " J'accepte ",
-  "declineButtonFr" : " Je refuse ",
+  "declineButtonFr" : " je n\\'accepte pas ",
   "declinePageHeaderEn" : " I do not accept ",
   "declinePageHeaderFr" : " ** fr ** EMPTY 'TermsConditions.declineTitle' ",
   "declinePageUrl":"/en/termsconditions-decline",
@@ -17,7 +17,7 @@
   "signUpPassword" : "Qwe123$$",
   "signUpVerificationCode" : "101010",
   
-  "contactInformationPageHeader":" Contact Info ",
+  "contactInformationPageHeader":" Contact Information ",
   "poBox":123,
   "aptUnit":45,
   "address":"Avenue Harvard",
@@ -29,6 +29,30 @@
   "emailAddress":"test123@gmail.com",
   "dialCode":"1",
   "telephoneNumber":"5213459000",
-  "extension":"21"
+  "extension":"21",
 
+  "employmentPageHeader":" Previous Employment ",
+  "employmentDialogHeader":" Employment history ",
+  "employerName":"IRCC",
+  "employmentFromYear":"2006",
+  "employmentFromMonth":"January",
+  "employmentToYear":"2018",
+  "employmentToMonth":"January",
+  "employmentCountry":"Canada",
+  "employmentAddress":"900 Slater",
+  "jobDescription":"Office Admin",
+  "jobTitle":"Office Admin",
+  "supervisorName":"John Doe",
+  "supervisorNumber":"4385347865",
+
+  "educationPageHeader":" Education history ",
+  "educationDialogHeader":" Education history ",
+  "instituteName":"Carleton University",
+  "educationFromYear":"2006",
+  "educationFromMonth":"January",
+  "educationToYear":"2010",
+  "educationToMonth":"January",
+  "educationCity":"Ottawa",
+  "educationCountry":"Canada",
+  "majorName":"Computer Science"
 }

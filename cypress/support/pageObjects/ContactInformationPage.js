@@ -27,7 +27,7 @@ class ContactInformationPage{
 
     getCountryDropDown()
     {
-        return cy.get('#mat-select-value-1 > .mat-select-placeholder')
+        return cy.get("[data-test='mat-select-mailing-country-test']")
     }
 
     getCountryDropDownInput()
@@ -52,7 +52,7 @@ class ContactInformationPage{
 
     getMailingAddressRadio()
     {
-        return cy.get('#mat-radio-2-input')
+        return cy.get('[data-test="isSameAddressLabel-Yes"]')
     }
 
     getEmailAddressTBox()
@@ -67,7 +67,7 @@ class ContactInformationPage{
 
     getTelephoneFromGrid()
     {
-        return cy.get('[data-test="mat-cell-4-value"]')
+        return cy.get('[data-test="mat-cell-4"]').eq(-1)
     }
 
     getSaveButton()
@@ -77,17 +77,17 @@ class ContactInformationPage{
 
     getPrimaryNumberRadio()
     {
-        return cy.get('#mat-radio-5')
+        return cy.get('[data-test="primary-Yes"]')
     }
 
     getTelephoneCountry()
     {
-        return cy.get('#mat-radio-8')
+        return cy.get('[data-test="country-Canada/US"]')
     }
 
     getTelephoneType()
     {
-        return cy.get('#mat-radio-12')
+        return cy.get('[data-test="teleType-Cellular"]')
     }
 
     getDialCodeTBox()

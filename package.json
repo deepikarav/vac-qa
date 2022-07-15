@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "cypress": " node_modules/.bin/cypress",
-    "testFrameworkSpec": "npm run cypress run -- --spec cypress/integration/TestFramework.spec.js",
+    "testFrameworkSpec": "npm run cypress run -- --spec cypress/integration/login.spec.js",
     "testMochawesome":"npm run testFrameworkSpec -- --reporter mochawesome",
     "testHeaded": "npm run testFrameworkSpec -- --headed",
     "testDashboard":"npm run cypress run -- --record --key 24d28cee-6594-428b-a636-bc515afbe6d1"

@@ -23,10 +23,11 @@ mochawesome-report
 videos
 
 #Modules in Progress
-educationHistory.spec.js
-EducationHistoryPage.js
-EmploymentHistoryPage.js
 GeneralInfomationPage.js
-VisitDetailsPage.js
 LanguageInformationPage.js
 BackgroundInformationPage.js
+VisitDetailsPage.js
+HomePage.js
+homePage.spec.js
+
+
