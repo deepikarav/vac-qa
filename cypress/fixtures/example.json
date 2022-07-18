@@ -9,15 +9,29 @@
   "termsAndConditionsPageUrl":"/fr/termsconditions",
 
   "loginPageTitleEn" : "Welcome to VAC Login Portal",
-  "loginEmail" : "deepalisagi91@gmail.com",
-  "loginPassword" :"Test123$$", 
+  "loginEmail" : "srimantika@gmail.com",
+  "loginPassword" :"Test@2022", 
   "loginVerificationCode" : "101010",
   "signUpPageTitleEn" : "Sign up to manage your existing applications",
   "signUpEmail" : "@gmail.com",
   "signUpPassword" : "Qwe123$$",
   "signUpVerificationCode" : "101010",
   
+<<<<<<< HEAD:cypress/fixtures/example.json
   "contactInformationPageHeader":" Contact Information ",
+=======
+  "generalInformationPageHeader": " Personal details ",
+  "lstName": "Traveller",
+  "firstName": "Happy",
+  "year": "2002",
+  "month": "May",
+  "day": "10", 
+  "birthCity" : "Sydney",
+  "birthCountry" : "Australia",
+  "relationshipStatus" : "Single",
+  
+  "contactInformationPageHeader":" Contact Info ",
+>>>>>>> feature2:cypress/fixtures/example.json
   "poBox":123,
   "aptUnit":45,
   "address":"Avenue Harvard",
