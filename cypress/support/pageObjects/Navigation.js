@@ -11,6 +11,10 @@ class Navigation
         return cy.get('.contentsubitems').eq(3)
     }
 
+    getNavbarVisitDetails()
+    {
+        return cy.get('.contentsubitems').eq(5)
+    }
     getNavbarStudyDetails()
     {
         return cy.get('.contentsubitems').eq(6)

@@ -1,4 +1,5 @@
-class EducationHistoryPage{
+class EducationHistoryPage
+{
 
     getHeader()
     {

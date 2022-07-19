@@ -23,17 +23,8 @@ mochawesome-report
 videos
 
 #Modules in Progress
-<<<<<<< HEAD:.gitignore
-GeneralInfomationPage.js
-=======
-educationHistory.spec.js
-EducationHistoryPage.js
-EmploymentHistoryPage.js
-VisitDetailsPage.js
->>>>>>> feature2:.gitignore
 LanguageInformationPage.js
 BackgroundInformationPage.js
-VisitDetailsPage.js
 
 
 

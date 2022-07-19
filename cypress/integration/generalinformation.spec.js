@@ -16,12 +16,12 @@ describe('Test Suite', function()
         
     })
 
-    it('Home Test', function()
+    it('General Information Test', function()
     {
+        const loginPage = new LoginPage()
         const homePage = new HomePage()
         const generalInformationPage = new GeneralInformationPage()
-        //Login section
-        const loginPage = new LoginPage()
+        
         cy.visit(Cypress.env('url') + 'login')
         loginPage.getEmailTBox().type(this.data.loginEmail)
         loginPage.getNextButton().click()
@@ -31,42 +31,27 @@ describe('Test Suite', function()
             loginPage.getVerificationCodeTBox().should('be.visible').type(this.data.loginVerificationCode)
             loginPage.getConfirmCodeButton().click()
         }
-        //Homepage section
-        //cy.visit(Cypress.env('url') + "home")
-        cy.url().should('include', '/home')
-        homePage.getAddApplicationButton().should('be.visible')
-        homePage.getAddApplicationButton().should('be.enabled')
-        homePage.getAddApplicationButton().click()
-        cy.wait (3000)
-        homePage.getDeleteApplicationButton().should('be.visible')
-        homePage.getDeleteApplicationButton().click()
-    
-        homePage.getEditApplicationButton().should('be.visible').click()
-
-        generalInformationPage.getHeader().should('be.visible')
         
-        cy.log('Home Page is successfully validated')
+        cy.url().should('include', '/home')
+        cy.wait (2000)
+        homePage.getEditButton().should('be.visible').click()
 
-        generalInformationPage.getHeader().should('be.visible')
         generalInformationPage.getHeader().should('have.text', this.data.generalInformationPageHeader)
-        generalInformationPage.getLastNameTBox().clear({force:true})
-        generalInformationPage.getLastNameTBox().first().type(this.data.lstName).should('have.value',this.data.lstName)
-        generalInformationPage.getFirstNameTBox().clear({force:true})
-        generalInformationPage.getFirstNameTBox().first().type(this.data.firstName).should('have.value', this.data.firstName)
+        generalInformationPage.getLastNameTBox().clear({force:true}).first().type(this.data.lastName).should('have.value',this.data.lastName)
+        generalInformationPage.getFirstNameTBox().clear({force:true}).first().type(this.data.firstName).should('have.value', this.data.firstName)
         generalInformationPage.getPastNameNoRadio().click()
         generalInformationPage.getGenderFemaleRadio().click()
         generalInformationPage.getDobYearTBox().clear({force:true}).first().type(this.data.year).should('have.value', this.data.year)
         generalInformationPage.getDobMonthTBox().clear({force:true}).first().type(this.data.month).should('have.value', this.data.month)
         generalInformationPage.getDobDayTBox().clear({force:true}).first().type(this.data.day).should('have.value', this.data.day)
-        generalInformationPage.getCountryTBox().clear({force:true}).type(this.data.birthCountry).should('have.value', this.data.birthCountry)
-        generalInformationPage.getCityTBox().clear({force:true}).type(this.data.birthCity).should('have.value', this.data.birthCity)
-        generalInformationPage.getRelationshipStsDropdown().type(this.data.relationshipStatus)
-        generalInformationPage.getRelationshipSingleDropdown().click({force:true})
-
+        generalInformationPage.getCountryTBox().clear().type(this.data.birthCountry).should('have.value', this.data.birthCountry)
+        generalInformationPage.getCityTBox().clear().type(this.data.birthCity).should('have.value', this.data.birthCity)
+        generalInformationPage.getMaritalStatusTBox().type(this.data.relationshipStatus)
+        generalInformationPage.getRelationshipSingleRadio().click()
         generalInformationPage.getPrevPartnerNoRadio().click()
         generalInformationPage.getSaveAndContinueButton().click()
-        cy.log('General Information Page is successfully validated')
-        
+        cy.url().should('include','languages')
+        cy.log("General Information Form is successfully submitted")
     })
     
 })

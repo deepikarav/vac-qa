@@ -91,7 +91,7 @@ describe('Test Suite', function()
 
         educationHistoryPage.getSaveAndContinueButton().click()
         cy.url().should('include','employment-history')
-        cy.log("Education History details Form successfully submitted")
+        cy.log("Education History details Form is successfully submitted")
     })
 
 })

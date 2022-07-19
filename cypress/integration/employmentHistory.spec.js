@@ -63,7 +63,7 @@ describe('Test Suite', function()
                     cy.log($e1.text())
                 }
             })
-            employmentHistoryPage.getEmployerAddressTBox().clear().type(this.data.employmentAddress).then(function (){
+            employmentHistoryPage.getEmployerAddressTBox().clear().type(this.data.employmentAddress).then (function(){
 
                 cy.get('.mat-option-text').each(($e1, index, $list) => {
 

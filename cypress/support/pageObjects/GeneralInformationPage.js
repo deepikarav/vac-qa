@@ -1,5 +1,3 @@
-<<<<<<< HEAD:cypress/support/pageObjects/GeneralInformationPage.js
-=======
 class GeneralInformationPage
 {
     getHeader()
@@ -37,23 +35,23 @@ class GeneralInformationPage
     }
     getPastNameNoRadio()
     {
-        return cy.get('[data-test="pastName-No"] > .mat-radio-label')
+        return cy.get('[data-test="pastName-No"]')
     }
     getGenderFemaleRadio()
     {
-        return cy.get('[data-test="gender-Female"] > .mat-radio-label')
+        return cy.get('[data-test="gender-Female"]')
     }
     getPrevPartnerNoRadio()
     {
-        return cy.get('[data-test="isPreviousPartner-No"] > .mat-radio-label')
+        return cy.get('[data-test="isPreviousPartner-No"]')
     }
-    getRelationshipStsDropdown()
+    getMaritalStatusTBox()
     {
         return cy.get('.mat-form-field-infix')
     }
-    getRelationshipSingleDropdown()
+    getRelationshipSingleRadio()
     {
-        return cy.get('[data-test="relationshipStatus-Single"] > .mat-option-text')
+        return cy.get('[data-test="relationshipStatus-Single"]')
     }
     getSaveAndContinueButton()
     {
@@ -62,4 +60,3 @@ class GeneralInformationPage
 }
 
 export default GeneralInformationPage
->>>>>>> feature2:cypress/support/pageObjects/GeneralInformationPage.js
