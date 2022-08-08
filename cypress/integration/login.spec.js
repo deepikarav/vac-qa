@@ -5,6 +5,10 @@ import HomePage from "../support/pageObjects/HomePage.js"
 describe('Test Suite', function()
 {
 
+    const signUpPage = new SignUpPage()
+    const loginPage = new LoginPage()
+    const homePage = new HomePage()
+
     beforeEach(function()
     {
 
@@ -17,10 +21,6 @@ describe('Test Suite', function()
 
     it('Login Test', function()
     {
-
-        const loginPage = new LoginPage()
-        const homePage = new HomePage()
-
         cy.visit(Cypress.env('url') + 'login')
         loginPage.getLogo().should('be.visible')
         loginPage.getTitle().should('have.text', this.data.loginPageTitleEn)
@@ -40,11 +40,6 @@ describe('Test Suite', function()
 
     it('Sign Up Test', function()
     {
-
-        const signUpPage = new SignUpPage()
-        const loginPage = new LoginPage()
-        const homePage = new HomePage()
-
         cy.visit(Cypress.env('url') + 'login')
         loginPage.getSignUpLink().should('be.visible').click()
         cy.url().should('include', '/signup')

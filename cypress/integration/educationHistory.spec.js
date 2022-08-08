@@ -33,7 +33,6 @@ describe('Test Suite', function()
             loginPage.getVerificationCodeTBox().should('be.visible').type(this.data.loginVerificationCode)
             loginPage.getConfirmCodeButton().click()
         })
-        
         cy.url().should('include', '/home')
         cy.log("User successfully logged into VAC Portal")
         cy.wait(2000)
@@ -41,7 +40,6 @@ describe('Test Suite', function()
         cy.url().should('include', '/personal-details')
         navigation.getNavbarStudyDetails().click()
         navigation.getNavbarEducationHistory().click()
-
         educationHistoryPage.getHeader().should('have.text', this.data.educationPageHeader )
         educationHistoryPage.getEducationHistoryYesRadio().click({force:true})
         educationHistoryPage.getAddEducationButton().click().then (function()
@@ -66,7 +64,6 @@ describe('Test Suite', function()
                     cy.log($e1.text())
                 }
             })
-            //cy.wait(8000)
             educationHistoryPage.getMajorDropDown().click()
             cy.get("mat-option[role='option']").each(($e1, index, $list) =>{
 
@@ -80,18 +77,15 @@ describe('Test Suite', function()
                     cy.log($e1.text())
                 }
             })
-
             educationHistoryPage.getCompletedStatusRadio().click()
             educationHistoryPage.getSubmitButton().click()
         })
-
         educationHistoryPage.getEducationTableInstituteNameText().should('have.text', this.data.instituteName)
         educationHistoryPage.getEducationTableCountryNameText().should('have.text', this.data.educationCountry)
         educationHistoryPage.getEducationTableMajorText().should('have.text', this.data.majorName)
-
         educationHistoryPage.getSaveAndContinueButton().click()
         cy.url().should('include','employment-history')
-        cy.log("Education History details Form is successfully submitted")
+        cy.log("Education History details Form is successfully completed")
     })
 
 })

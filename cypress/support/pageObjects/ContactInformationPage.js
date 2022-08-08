@@ -7,47 +7,47 @@ class ContactInformationPage{
     
     getPOTBox()
     {
-        return cy.get('[data-test="mailing-poBox-test"]')
+        return cy.get('[data-test="mailingPoBox-test"]')
     }
 
     getApartmentUnitTBox()
     {
-        return cy.get('[data-test="mailing-unit-test"]')
+        return cy.get('[data-test="mailingUnit-test"]')
     }
 
     getAddressTBox()
     {
-        return cy.get('[data-test="mailing-address-test"]')
+        return cy.get('[data-test="mailingAddress-test"]')
     }
 
     getCityTownTBox()
     {
-        return cy.get('[data-test="mailing-city-test"]')
+        return cy.get('[data-test="mailingCity-test"]')
     }
 
     getCountryDropDown()
     {
-        return cy.get("[data-test='mat-select-mailing-country-test']")
+        return cy.get("[data-test='mat-select-mailingCountry-test']")
     }
 
     getCountryDropDownInput()
     {
-        return cy.get('[data-test="mailing-country-Canada"] > .mat-option-text')
+        return cy.get('[data-test="mailingCountry-Canada"] > .mat-option-text')
     }
 
     getProvinceTBox()
     {
-        return cy.get('[data-test="mailing-province-test"]')
+        return cy.get('[data-test="mailingProvince-test"]')
     }
 
     getPostalCodeTBox()
     {
-        return cy.get('[data-test="mailing-postalCode-test"]')
+        return cy.get('[data-test="mailingPostalCode-test"]')
     }
 
     getDistrictTBox()
     {
-        return cy.get('[data-test="mailing-district-test"]')
+        return cy.get('[data-test="mailingDistrict-test"]')
     }
 
     getMailingAddressRadio()

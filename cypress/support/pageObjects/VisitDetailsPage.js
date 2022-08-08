@@ -57,7 +57,7 @@ class VisitDetailsPage
 
     getVisitDialogHeader()
     {
-        return cy.get('#mat-dialog-title-0')
+        return cy.get('.mat-dialog-title')
     }
 
     getNameTBox()
@@ -65,14 +65,19 @@ class VisitDetailsPage
         return cy.get('[data-test="name-test"]')
     }
 
-    getRelationshipTBox()
+    getRelationshipDropDown()
     {
-        return cy.get('[data-test="relationship-test"]')
+        return cy.get('[data-test="mat-select-relationship-test"]')
     }
+
+    getSelectRelationshipDropDown()
+    {
+        return cy.get('[data-test="relationship-Sister"]')
+    } 
 
     getAddress()
     {
-        return cy.get('[data-test="address-test"]')
+        return cy.get('[data-test="input-address"]')
     }
 
     getAddLocationDialogButton()

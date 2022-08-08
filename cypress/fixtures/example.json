@@ -19,6 +19,9 @@
   "signUpPassword" : "Qwe123$$",
   "signUpVerificationCode" : "101010",
   
+  "languagePageHeader" :  " Languages Details ",
+  "nativeLanguage":"English",
+  
   "contactInformationPageHeader":" Contact Information ",
   "poBox":"123",
   "aptUnit":"45",
@@ -43,6 +46,17 @@
   "birthCountry" : "Australia",
   "relationshipStatus" : "Single",
 
+  "passportPageHeader":" Passport/travel document ",
+  "passportNumber":"123456789",
+  "issueYear": "2019",
+  "issueMonth": "June",
+  "issueDay": "20", 
+  "expiryYear": "2022",
+  "expiryMonth": "June",
+  "expiryDay": "20",
+  "nationalIDDocumentNumber":"987654321",
+  "usPRDocumentNumber":"0123456789",
+
   "visitDetailsPageHeader" : " Visit Details ",
   "visitFromYear":"2023",
   "visitFromMonth":"June",
@@ -53,7 +67,7 @@
   "visitFunds":"4500",
   "visitDialogHeader":" Add Location ",
   "visitLocationName" : "Jane Doe",
-  "visitLocationRelationship" : "Sibling",
+  "visitLocationRelationship" : "Sister",
   "visitLocationAddress":"8142 Dundonald Avenue Nepean Ottawa ON K1Z6E9",
 
   "employmentPageHeader":" Previous Employment ",
@@ -79,5 +93,10 @@
   "educationToMonth":"January",
   "educationCity":"Ottawa",
   "educationCountry":"Canada",
-  "majorName":"Computer Science"
+  "majorName":"Computer Science",
+
+  "backgroundInfoPageHeader":" Background Information ",
+  "visaStatusDetails":"Due to Pandemic travel restrictions",
+  "serviceDetails":"Served in Army",
+  "summaryPageHeader":" Summary "
 }

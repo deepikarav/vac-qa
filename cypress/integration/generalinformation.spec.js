@@ -51,7 +51,7 @@ describe('Test Suite', function()
         generalInformationPage.getPrevPartnerNoRadio().click()
         generalInformationPage.getSaveAndContinueButton().click()
         cy.url().should('include','languages')
-        cy.log("General Information Form is successfully submitted")
+        cy.log("General Information Form is successfully completed")
     })
     
 })

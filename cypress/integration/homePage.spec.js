@@ -4,7 +4,6 @@ import HomePage from "../support/pageObjects/HomePage.js"
 
 describe('Test Suite', function()
 {
-
     beforeEach(function()
     {
 
@@ -17,7 +16,6 @@ describe('Test Suite', function()
 
     it(' HomePage Add application test', function()
     {
-
         const loginPage = new LoginPage()
         const homePage = new HomePage()
 

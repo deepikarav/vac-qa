@@ -64,7 +64,7 @@ describe('Test Suite', function()
             contactInformationPage.getSaveButton().should('be.enabled').click() 
         })
         cy.url().should('include','/passport')
-        cy.log("Contact Information Form successfully submitted")
+        cy.log("Contact Information Form successfully completed")
     })
 
 })
