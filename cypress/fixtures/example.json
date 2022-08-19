@@ -2,14 +2,14 @@
   "termsAndConditionsPageHeaderEn" : " Terms and Conditions ",
   "termsAndConditionsPageHeaderFr" : " Termes et conditions ",
   "acceptButtonFr" : " J'accepte ",
-  "declineButtonFr" : " je n\\'accepte pas ",
+  "declineButtonFr" : " je n'accepte pas ",
   "declinePageHeaderEn" : " I do not accept ",
-  "declinePageHeaderFr" : " ** fr ** EMPTY 'TermsConditions.declineTitle' ",
+  "declinePageHeaderFr" : " je n'accepte pas ",
   "declinePageUrl":"/en/termsconditions-decline",
   "termsAndConditionsPageUrl":"/fr/termsconditions",
 
   "loginPageTitleEn" : "Welcome to VAC Login Portal",
-  "loginEmail" : "deepalisagi91@gmail.com",
+  "loginEmail" : "deepika.ravikumar@cic.gc.ca",
   "loginPassword" :"Test123$$", 
   "loginEmail2" : "srimantika@gmail.com",
   "loginPassword2" :"Test@2022", 
@@ -98,5 +98,8 @@
   "backgroundInfoPageHeader":" Background Information ",
   "visaStatusDetails":"Due to Pandemic travel restrictions",
   "serviceDetails":"Served in Army",
+
+  "documentsPageHeader" : " Documents to support your application ",
+  "documentName": "canada-flag",
   "summaryPageHeader":" Summary "
 }

@@ -54,7 +54,7 @@ describe('Test Suite', function()
         backgroundInfoPage.getPoliticalRadio().click()
         backgroundInfoPage.getWitnessedRadio().click()
         backgroundInfoPage.getSaveAndContinueButton().click()
-        cy.url().should('include','/summary')
+        cy.url().should('include','/documents')
         cy.log("Background Information Form is successfully completed")
     })
 

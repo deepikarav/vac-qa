@@ -7,7 +7,7 @@ class PassportPage
 
     getPassportNumberTBox()
     {
-        return cy.get('[data-test="number-test"]')
+        return cy.get('[data-test="number-test"]').eq(0)
     }
 
     getCountryDropDown()
@@ -77,7 +77,7 @@ class PassportPage
 
     getNationalIDDocumentNumberTBox()
     {
-        return cy.get('[data-test="nationalDocumentNumber-test"]')
+        return cy.get('[data-test="number-test"]').eq(1)
     }
 
     getNationalIDCountryIssueDropDown()
@@ -122,12 +122,12 @@ class PassportPage
 
     getUSPRStatusRadio()
     {
-        return cy.get('[data-test="isUsPr-Yes"]')
+        return cy.get('[data-test="isGreencard-Yes"]')
     }
 
     getUSPRDocumentNumberTBox()
     {
-        return cy.get('[data-test="usPrNumber-test"]')
+        return cy.get('[data-test="number-test"]').eq(2)
     }
 
     getUSPRExpiryYearDropDown()

@@ -12,7 +12,7 @@ class SummaryPage
 
     getConfirmButton()
     {
-        return cy.get('[data-test="primary-button"]')
+        return cy.get('[data-test="primary-button"]').eq(2)
     }
 }
  

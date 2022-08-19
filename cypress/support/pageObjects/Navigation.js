@@ -43,6 +43,17 @@ class Navigation
     {
         return cy.get('.contentsubitems').eq(9)
     }
+
+    getNavbarDocuments()
+    {
+        return cy.get('.mat-list-item-content').eq(11)
+    }
+
+    getNavbarSummary()
+    {
+        return cy.get('.mat-list-item-content').eq(12)
+    }
+
 }
 
 export default Navigation

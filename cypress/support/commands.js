@@ -39,4 +39,6 @@ Cypress.Commands.add('form', (length)=> {
    
 })
 
+import 'cypress-file-upload'
+
     

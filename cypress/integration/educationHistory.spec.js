@@ -42,7 +42,7 @@ describe('Test Suite', function()
         navigation.getNavbarEducationHistory().click()
         educationHistoryPage.getHeader().should('have.text', this.data.educationPageHeader )
         educationHistoryPage.getEducationHistoryYesRadio().click({force:true})
-        educationHistoryPage.getAddEducationButton().click().then (function()
+        educationHistoryPage.getAddEducationButton().click({force:true}).then (function()
         {
             educationHistoryPage.getEducationHistoryDialogHeader().should('have.text', this.data.educationDialogHeader)
             educationHistoryPage.getFromYearDropDown().clear().type(this.data.educationFromYear)

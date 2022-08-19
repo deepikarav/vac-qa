@@ -1,11 +1,15 @@
 
 import TermsAndConditionsPage from "../support/pageObjects/TermsAndConditionsPage.js"
 import DeclinePage from "../support/pageObjects/DeclinePage.js"
+import LoginPage from "../support/pageObjects/LoginPage.js"
 
 
 
 describe('Test Suite', function()
 {
+    const loginPage = new LoginPage()
+    const termsAndConditionsPage = new TermsAndConditionsPage()
+    const declinePage = new DeclinePage()
 
     beforeEach(function()
     {
@@ -19,9 +23,16 @@ describe('Test Suite', function()
 
     it('Terms and Conditions Test', function()
     {
-        const termsAndConditionsPage = new TermsAndConditionsPage()
-        const declinePage = new DeclinePage()
-
+        cy.visit(Cypress.env('url') + 'login')
+        loginPage.getEmailTBox().type(this.data.loginEmail) 
+        loginPage.getNextButton().click()
+        loginPage.getPasswordTBox().type(this.data.loginPassword)
+        loginPage.getLoginButton().click()
+        {
+            loginPage.getVerificationCodeTBox().should('be.visible').type(this.data.loginVerificationCode)
+            loginPage.getConfirmCodeButton().click()
+        }
+        cy.url().should('include', '/home')
         cy.visit(Cypress.env('url') + "termsconditions")
         termsAndConditionsPage.getHeader().should('have.text', this.data.termsAndConditionsPageHeaderEn)
         termsAndConditionsPage.getLanguageToggle().click().then (function()

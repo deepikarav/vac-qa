@@ -40,7 +40,7 @@ describe('Test Suite', function()
         navigation.getNavbarEmploymentHistory().click()
         employmentHistoryPage.getHeader().should('have.text', this.data.employmentPageHeader)
         employmentHistoryPage.getEmploymentHistoryYesRadio().click({force:true})
-        employmentHistoryPage.getAddEmploymentButton().click().then (function()
+        employmentHistoryPage.getAddEmploymentButton().click({force:true}).then (function()
         {
             employmentHistoryPage.getEmploymentHistoryDialogHeader().should('have.text', this.data.employmentDialogHeader)
             employmentHistoryPage.getEmployerTBox().clear().type(this.data.employerName)

@@ -38,7 +38,7 @@ describe('Test Suite', function()
             homePage.getApplicationIdColumn().each(($e1, index, $list) => {
         
                 const applicationId= $e1.text()
-                if(applicationId.includes('44e5'))
+                if(applicationId.includes('4901'))
                 {
                     cy.log(applicationId)
                     homePage.getEditButton().eq(index).click({force:true})
