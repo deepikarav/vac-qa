@@ -1,14 +1,51 @@
 class HomePage
 {
-    getAddApplicationButton()
+
+    getHomePageTitle()
     {
-        return cy.get('[data-test="primary-button"]')
+        return cy.get('.vac-intake-portal')
     }
 
-    getApplicationIdColumn()
+    getUserDetailsText()
     {
-        return cy.get('tr:nth-child(2) td:nth-child(1)')
+        return cy.get(".user-details")
     }
+
+    getUserAvatarIcon()
+    {
+        return cy.get(".mat-icon.notranslate.user-avatar.material-icons-outlined.mat-icon-no-color")
+    }
+
+    getVACLocationText()
+    {
+        return cy.get(".user-location")
+    }
+
+    getSignOutButton()
+    {
+        return cy.get("button[aria-label='back-lbl']")
+    }
+    
+    getNewApplicationCard()
+    {
+        return cy.get("[app-card[ng-reflect-key='New-Application'] mat-card[class='mat-card mat-focus-indicator card']")
+    }
+
+    getNewApplicationLink()
+    {
+        return cy.get("app-card[ng-reflect-key='New-Application'] button[class='card-button button btn btn-primary ng-star-inserted']")
+    }
+
+    getApplicationHistoryCard()
+    {
+        return cy.get("app-card[ng-reflect-key='Application-History'] mat-card[class='mat-card mat-focus-indicator card']")
+    }
+
+    getApplicationHistoryLink()
+    {
+        return cy.get("app-card[ng-reflect-key='Application-History'] button[class='card-button button btn btn-primary ng-star-inserted']")
+    }
+
 
     getEditButton()
     {

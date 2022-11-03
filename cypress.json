@@ -2,7 +2,7 @@
   "defaultCommandTimeout": 8000,
   "reporter":"mochawesome",
   "env": {
-    "url": "https://d39s7yt6yu1fwa.cloudfront.net//en/"
+    "url": "https://d2ikjoae8nukqz.cloudfront.net/en/"
   },
   "projectId": "tuhfw1"
 }

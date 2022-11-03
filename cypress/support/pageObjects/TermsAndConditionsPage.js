@@ -12,12 +12,12 @@ class TermsAndConditionsPage{
 
     getAcceptButton()
     {
-        return cy.get('.btn-primary-fill')
+        return cy.get('#accept-button-lbl')
     }
 
     getDoNotAcceptButton()
     {
-        return cy.get('.btn-primary-outline')
+        return cy.get('#decline-lbl')
     }
 
 }

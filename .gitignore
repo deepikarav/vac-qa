@@ -23,6 +23,26 @@ mochawesome-report
 videos
 
 #Modules in Progress
+backgroundInformation.spec.js
+contactInfo.spec.js
+documents.spec.js
+educationHistory.spec.js
+employmentHistory.spec.js
+generalInformation.spec.js
+languageInformation.spec.js
+passport.spec.js
+summary.spec.js
+visitDetails.spec.js
+e2eTest.spec.js
 
-
+BackgroundInformationPage.js
+ContactInformationPage.js
+DocumentsPage.js
+EducationHistoryPage.js
+EmploymentHistoryPage.js
+GeneralInformationPage.js
+LanguageInformationPage.js
+PassportPage.js
+SummaryPage.js
+VisitDetailsPage.js
 
