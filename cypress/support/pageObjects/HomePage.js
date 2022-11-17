@@ -28,33 +28,37 @@ class HomePage
     
     getNewApplicationCard()
     {
-        return cy.get("[app-card[ng-reflect-key='New-Application'] mat-card[class='mat-card mat-focus-indicator card']")
+        return cy.get('[ng-reflect-key="New-Application"] > .mat-card')
     }
 
     getNewApplicationLink()
     {
-        return cy.get("app-card[ng-reflect-key='New-Application'] button[class='card-button button btn btn-primary ng-star-inserted']")
+        return cy.get('[ng-reflect-key="New-Application"] > .mat-card > .card-button')
     }
 
     getApplicationHistoryCard()
     {
-        return cy.get("app-card[ng-reflect-key='Application-History'] mat-card[class='mat-card mat-focus-indicator card']")
+        return cy.get('[ng-reflect-key="Application-History"] > .mat-card')
     }
 
     getApplicationHistoryLink()
     {
-        return cy.get("app-card[ng-reflect-key='Application-History'] button[class='card-button button btn btn-primary ng-star-inserted']")
+        return cy.get('[ng-reflect-key="Application-History"] > .mat-card > .card-button')
     }
 
+    getApplicationIdColumn()
+    {
+        return cy.get('table > :nth-child(2) > :nth-child(1)')
+    }
 
     getEditButton()
     {
-        return cy.get(':nth-child(2) > :nth-child(4) > app-basic-button > [data-test="basic-button"] > .mat-button-wrapper > .button-contents > span')
+        return cy.get(':nth-child(2) > :nth-child(4) > #editBtn > [data-test="basic-button"] > .mat-button-wrapper > .button-contents > span')
     }
 
     getDeleteButton()
     {
-        return cy.get(':nth-child(3) > :nth-child(5) > app-basic-button > [data-test="basic-button"] > .mat-button-wrapper > .button-contents > span')
+        return cy.get(':nth-child(2) > :nth-child(5) > #deleteBtn > [data-test="basic-button"] > .mat-button-wrapper > .button-contents > span')
     }
 }
 

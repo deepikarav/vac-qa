@@ -23,6 +23,7 @@ mochawesome-report
 videos
 
 #Modules in Progress
+maritalStatus.spec.js
 backgroundInformation.spec.js
 contactInfo.spec.js
 documents.spec.js
@@ -35,6 +36,7 @@ summary.spec.js
 visitDetails.spec.js
 e2eTest.spec.js
 
+MaritalStatusPage.js
 BackgroundInformationPage.js
 ContactInformationPage.js
 DocumentsPage.js

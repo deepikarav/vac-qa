@@ -1,30 +1,31 @@
 class Navigation
 {
-    getNavbarPersonalDetails()
+    getNavbarPersonalInformation()
     {
         return cy.get('.contentsubitems').eq(0)
     }
 
-    getNavbarLanguageInfo()
+    getNavbarMaritalStatus()
     {
         return cy.get('.contentsubitems').eq(2)
     }
 
-    getNavbarContactInfo()
+    getNavbarLanguageInfo()
     {
         return cy.get('.contentsubitems').eq(3)
     }
 
-    getNavbarPassport()
+    getNavbarContactInfo()
     {
         return cy.get('.contentsubitems').eq(4)
     }
 
-    getNavbarVisitDetails()
+    getNavbarTravelID()
     {
         return cy.get('.contentsubitems').eq(5)
     }
-    getNavbarStudyDetails()
+
+    getNavbarVisitDetails()
     {
         return cy.get('.contentsubitems').eq(6)
     }
@@ -52,6 +53,11 @@ class Navigation
     getNavbarSummary()
     {
         return cy.get('.mat-list-item-content').eq(12)
+    }
+
+    getNavbarAdditionalInfo()
+    {
+        return cy.get('.mat-list-item-content').eq()
     }
 
 }

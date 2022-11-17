@@ -19,7 +19,7 @@ describe('Test Suite', function()
         
     })
 
-    it(' HomePage Add application test', function()
+    it(' HomePage test', function()
     {
         cy.visit(Cypress.env('url') + 'signin')
         signInPage.getUsernameTBox().type(this.data.signInUserName)
@@ -31,13 +31,13 @@ describe('Test Suite', function()
         cy.url().should('include', '/home')
         cy.log("User successfully logged into VAC Portal and navigated to Home page")
         //homePage.getUserDetailsText().should('have.text',)
-        homePage.getUserAvatarIcon().should('be.visible',)
+        homePage.getUserAvatarIcon().should('be.visible')
         //homePage.getVACLocationText.should('have.text',)
-        homePage.getNewApplicationCard.should('be.visible',)
-        homePage.getNewApplicationLink.should('be.visible',)
-        homePage.getApplicationHistoryCard.should('be.visible',)
-        homePage.getApplicationHistoryLink.should('be.visible',)
-        homePage.getSignOutButton.should(be.visible).click()
+        homePage.getNewApplicationCard().should('be.visible')
+        homePage.getNewApplicationLink().should('be.visible')
+        homePage.getApplicationHistoryCard().should('be.visible')
+        homePage.getApplicationHistoryLink().should('be.visible')
+        homePage.getSignOutButton().should('be.visible').click()
         cy.url().should('include', '/signin')
         cy.log("Homepage is validated and user is signed out successfully")
     })
@@ -55,30 +55,40 @@ describe('Test Suite', function()
         homePage.getNewApplicationCard().should('be.visible')
         homePage.getNewApplicationLink().click().then (function()
         {
-            // cy.wait(5000)
-            // homePage.getDeleteButton().should('be.visible').click()
-            // homePage.getApplicationIdColumn().each(($e1, index, $list) => {
-        
-            //     const applicationId= $e1.text()
-            //     if(applicationId.includes('4901'))
-            //     {
-            //         cy.log(applicationId)
-            //         homePage.getEditButton().eq(index).click({force:true})
-            //     }
-            //     cy.url().should('include', '/personal-details')
-            
+            cy.wait(5000)
+            cy.url().should('include', '/client/general/personal-details')
             })
-
-        })
+        cy.log("User successfully created a new application")
+    })
 
     it('HomePage Edit application test', function()
     {
 
+        cy.visit(Cypress.env('url') + 'signin')
+        signInPage.getUsernameTBox().type(this.data.signInUserName)
+        signInPage.getPasswordTBox().type(this.data.signInPassword)
+        signInPage.getContinueButton().click()
+        cy.url().should('include', '/termsconditions')
+        termsAndConditionsPage.getAcceptButton().click()
+        homePage.getHomePageTitle().should('have.text', this.data.homePageTitleEn)
+        cy.url().should('include', '/home')
+        cy.log("User successfully logged into VAC Portal and navigated to Home page")
+        homePage.getApplicationHistoryCard().should('be.visible')
+        homePage.getApplicationHistoryLink().click().then (function()
+        {
+            cy.wait(5000)
+            cy.url().should('include', '/application-history')
+            homePage.getApplicationIdColumn().each(($e1, index, $list) => {
+        
+                const applicationId= $e1.text()
+                if(applicationId.includes('4e43436b'))
+                {
+                    cy.log(applicationId)
+                    homePage.getEditButton().eq(index).click({force:true})
+                }
+                cy.url().should('include', '/personal-details')
+            })
+        })
+        cy.log("User successfully navigated to edit application")
     })
-
-    it('HomePage Delete application test', function()
-    {
-
-    })
-
 })
