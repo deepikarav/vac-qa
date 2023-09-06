@@ -33,15 +33,15 @@ class HomePage
 
     getNewApplicationLink()
     {
-        return cy.get('[ng-reflect-key="New-Application"] > .mat-card > .card-button')
+        return cy.get('[ng-reflect-key="New-Application"] > .mat-card > .cardBtn')
     }
 
-    getApplicationHistoryCard()
+    getDraftApplicationCard()
     {
         return cy.get('[ng-reflect-key="Application-History"] > .mat-card')
     }
 
-    getApplicationHistoryLink()
+    getDraftApplicationLink()
     {
         return cy.get('[ng-reflect-key="Application-History"] > .mat-card > .card-button')
     }

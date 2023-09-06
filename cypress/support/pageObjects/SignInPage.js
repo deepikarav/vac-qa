@@ -31,19 +31,19 @@ class SignInPage
         return cy.get("app-button[ng-reflect-label='Continue']")
     }
     
+    getVerificationCodeTBox()
+    {
+        return cy.get('.input')
+    }
+
+    getSignInButton()
+    {
+        return cy.get('#undefined')
+    }
+
     getResetPasswordLink()
     {
         return cy.get("a[href='/en/reset-password']")
-    }
-
-    getVerificationCodeTBox()
-    {
-        return cy.get('#mfa-code_id')
-    }
-
-    getConfirmCodeButton()
-    {
-        return cy.get("button[type='submit']")
     }
 
     getShowPasswordIcon()

@@ -45,19 +45,19 @@ class PersonalInformationPage
         return cy.get('[data-test="day-lbl"]')
     }
   
-    getCityTBox()
+    getBirthCityTBox()
     {
         return cy.get('[data-test="city-test"]')
     }
 
-    getCountryTBox()
+    getBirthCountryTBox()
     {
         return cy.get('[data-test="countryOfBirth-lbl"]')
     }
 
-    getCitizenshipByBirthRadio()
+    getCitizenshipCountryTBox()
     {
-        return cy.get('[data-test="citizenship-Yes"]')
+        return cy.get('[data-test="primaryCitizenshipCountry-lbl"]')
     }
 
     getAnotherCitizenshipRadio()
@@ -67,12 +67,12 @@ class PersonalInformationPage
 
     getCountryOfResidenceDropdown()
     {
-        return cy.get('[data-test="currentCountryOfResidence-lbl"]')
+        return cy.get('[data-test="countryOfResidence-lbl"]')
     }
     
     getCountryOfResidenceStatusDropdown()
     {
-        return cy.get('.mat-select-placeholder')
+        return cy.get('#mat-select-value-7')
     }
 
     getCountryOfResidenceStatusOption()
