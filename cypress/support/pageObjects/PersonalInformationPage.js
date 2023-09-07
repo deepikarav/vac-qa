@@ -72,7 +72,7 @@ class PersonalInformationPage
     
     getCountryOfResidenceStatusDropdown()
     {
-        return cy.get('#mat-select-value-7')
+        return cy.get('#mat-select-value-1 > .mat-select-placeholder')
     }
 
     getCountryOfResidenceStatusOption()
