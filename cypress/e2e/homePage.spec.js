@@ -1,4 +1,3 @@
-///<reference types="Cypress"/>
 import SignInPage from "../support/pageObjects/SignInPage.js"
 import HomePage from "../support/pageObjects/HomePage.js"
 import TermsAndConditionsPage from "../support/pageObjects/TermsAndConditionsPage"

@@ -1,12 +1,13 @@
-///<reference types="Cypress"/>
-import LoginPage from "../support/pageObjects/LoginPage.js"
+import SignInPage from "../support/pageObjects/SignInPage.js"
+import TermsAndConditionsPage from "../support/pageObjects/TermsAndConditionsPage"
 import HomePage from "../support/pageObjects/HomePage.js"
 import EmploymentHistoryPage from "../support/pageObjects/EmploymentHistoryPage.js"
 import Navigation from "../support/pageObjects/Navigation.js"
 
 describe('Test Suite', function()
 {
-    const loginPage = new LoginPage()
+    const signInPage = new SignInPage()
+    const termsAndConditionsPage = new TermsAndConditionsPage()
     const homePage = new HomePage()
     const navigation = new Navigation()
     const employmentHistoryPage = new EmploymentHistoryPage()
@@ -23,20 +24,22 @@ describe('Test Suite', function()
 
     it('Employment History form fill test', function()
     {
-        cy.visit(Cypress.env('url') + 'login')
-        loginPage.getEmailTBox().type(this.data.loginEmail) 
-        loginPage.getNextButton().click()
-        loginPage.getPasswordTBox().type(this.data.loginPassword)
-        loginPage.getLoginButton().click()
-        {
-            loginPage.getVerificationCodeTBox().should('be.visible').type(this.data.loginVerificationCode)
-            loginPage.getConfirmCodeButton().click()
-        }
+        cy.visit(Cypress.env('url') + 'signin')
+        signInPage.getUsernameTBox().type(this.data.signInUserName)
+        signInPage.getPasswordTBox().type(this.data.signInPassword)
+        signInPage.getContinueButton().click()
+        signInPage.getVerificationCodeTBox().should('be.visible').wait(15000)
+        signInPage.getSignInButton().click()
+        cy.url().should('include', '/termsconditions')
+        termsAndConditionsPage.getAcceptButton().click()
+        homePage.getHomePageTitle().should('have.text', this.data.homePageTitleEn)
         cy.url().should('include', '/home')
-        cy.log("User successfully logged into VAC Portal")
-        cy.wait(2000)
-        homePage.getEditButton().click()
-        cy.url().should('include', '/personal-details')
+        cy.log("User successfully logged into VAC Portal and navigated to Home page")
+        homePage.getNewApplicationLink().click().then (function()
+        {
+            cy.wait(5000)
+            cy.url().should('include', '/client/general/personal-details')
+        })
         navigation.getNavbarEmploymentHistory().click()
         employmentHistoryPage.getHeader().should('have.text', this.data.employmentPageHeader)
         employmentHistoryPage.getEmploymentHistoryYesRadio().click({force:true})

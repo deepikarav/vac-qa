@@ -1,11 +1,13 @@
-import LoginPage from "../support/pageObjects/LoginPage.js"
+import SignInPage from "../support/pageObjects/SignInPage.js"
+import TermsAndConditionsPage from "../support/pageObjects/TermsAndConditionsPage"
 import DocumentsPage from "../support/pageObjects/DocumentsPage.js"
 import HomePage from "../support/pageObjects/HomePage.js"
 import Navigation from "../support/pageObjects/Navigation.js"
 
 describe('Test Suite', function()
 {
-    const loginPage = new LoginPage()
+    const signInPage = new SignInPage()
+    const termsAndConditionsPage = new TermsAndConditionsPage()
     const documentsPage =  new DocumentsPage()
     const homePage = new HomePage()
     const navigation = new Navigation()
@@ -21,22 +23,22 @@ describe('Test Suite', function()
 
     it('Document Upload Test ', function()
     {
-        cy.visit(Cypress.env('url') + 'login')
-        loginPage.getLogo().should('be.visible')
-        loginPage.getTitle().should('have.text', this.data.loginPageTitleEn)
-        loginPage.getEmailTBox().type(this.data.loginEmail)
-        loginPage.getNextButton().click()
-        loginPage.getPasswordTBox().type(this.data.loginPassword)
-        loginPage.getLoginButton().click()
-        {
-            loginPage.getVerificationCodeTBox().should('be.visible').type(this.data.loginVerificationCode)
-            loginPage.getConfirmCodeButton().click()
-        }
+        cy.visit(Cypress.env('url') + 'signin')
+        signInPage.getUsernameTBox().type(this.data.signInUserName)
+        signInPage.getPasswordTBox().type(this.data.signInPassword)
+        signInPage.getContinueButton().click()
+        signInPage.getVerificationCodeTBox().should('be.visible').wait(15000)
+        signInPage.getSignInButton().click()
+        cy.url().should('include', '/termsconditions')
+        termsAndConditionsPage.getAcceptButton().click()
+        homePage.getHomePageTitle().should('have.text', this.data.homePageTitleEn)
         cy.url().should('include', '/home')
-        cy.log("User successfully logged into VAC Portal")
-        cy.wait(2000)
-        homePage.getEditButton().click()
-        cy.url().should('include', '/personal-details')
+        cy.log("User successfully logged into VAC Portal and navigated to Home page")
+        homePage.getNewApplicationLink().click().then (function()
+        {
+            cy.wait(5000)
+            cy.url().should('include', '/client/general/personal-details')
+        })
         navigation.getNavbarDocuments().click()   
         documentsPage.getHeaderText().should('have.text', this.data.documentsPageHeader)
         cy.get('input[type="file"]')
