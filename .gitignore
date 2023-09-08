@@ -23,26 +23,6 @@ mochawesome-report
 videos
 
 #Modules in Progress
-maritalStatus.spec.js
-backgroundInformation.spec.js
-contactInfo.spec.js
-documents.spec.js
-educationHistory.spec.js
-employmentHistory.spec.js
-languageInformation.spec.js
-passport.spec.js
-summary.spec.js
-visitDetails.spec.js
-e2eTest.spec.js
 
-MaritalStatusPage.js
-BackgroundInformationPage.js
-ContactInformationPage.js
-DocumentsPage.js
-EducationHistoryPage.js
-EmploymentHistoryPage.js
-LanguageInformationPage.js
-PassportPage.js
-SummaryPage.js
-VisitDetailsPage.js
+e2eTest.spec.js
 
