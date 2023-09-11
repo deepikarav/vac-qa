@@ -3,6 +3,8 @@
 
 #Ignore node_modules folder
 node_modules
+#ignore example.json
+cypress\fixtures\example.json
 
 #Ignore all text files
 *.txt
@@ -26,6 +28,5 @@ videos
 
 e2eTest.spec.js
 
-#ignore example.json
-**/example.json
+
 
