@@ -1,124 +1,101 @@
-class VisitDetailsPage
-{
-    getVisitDetailsHeader()
-    {
-        return cy.get('h1')
-    }
+class VisitDetailsPage {
+  //visit details
 
-    getVisitPurposeDropDown()
-    {
-        return cy.get('[data-test="mat-select-purpose-test"]')
-    }
+  getVisitDetailsHeader() {
+    return cy.get("h1");
+  }
 
-    getVisitPurposeOption()
-    {
-        cy.get('[data-test="purpose-Tourism"]')
-    }
+  getVisitPurposeDropDown() {
+    return cy.get('[data-test="mat-select-purpose-test"]');
+  }
 
-    getFromYearDropDown()
-    {
-        return cy.get('[data-test="year-lbl"]').eq(0)
-    }
+  getVisitPurposeOption() {
+    cy.get('[data-test="purpose-Tourism"]');
+  }
 
-    getFromMonthDropDown()
-    {
-        return cy.get('[data-test="month-lbl"]').eq(0)
-    }
+  getFromYearDropDown() {
+    return cy.get('[data-test="year-lbl"]').eq(0);
+  }
 
-    getFromDayDropDown()
-    {
-        return cy.get('[data-test="day-lbl"]').eq(0)
-    }
+  getFromMonthDropDown() {
+    return cy.get('[data-test="month-lbl"]').eq(0);
+  }
 
-    getToYearDropDown()
-    {
-        return cy.get('[data-test="year-lbl"]').eq(1)
-    }
+  getFromDayDropDown() {
+    return cy.get('[data-test="day-lbl"]').eq(0);
+  }
 
-    getToMonthDropDown()
-    {
-        return cy.get('[data-test="month-lbl"]').eq(1)
-    }
+  getToYearDropDown() {
+    return cy.get('[data-test="year-lbl"]').eq(1);
+  }
 
-    getToDayDropDown()
-    {
-        return cy.get('[data-test="day-lbl"]').eq(1)
-    }
+  getToMonthDropDown() {
+    return cy.get('[data-test="month-lbl"]').eq(1);
+  }
 
-    getFundsTBox()
-    {
-        return cy.get('[data-test="fundsAvailable-test"]')
-    }
+  getToDayDropDown() {
+    return cy.get('[data-test="day-lbl"]').eq(1);
+  }
 
-    getAddLocationButton()
-    {
-        return cy.get('[data-test="relationsLocations-action-button-create"]')
-    }
+  getFundsTBox() {
+    return cy.get('[data-test="fundsAvailable-test"]');
+  }
 
-    getVisitDialogHeader()
-    {
-        return cy.get('.mat-dialog-title')
-    }
+  getAddLocationButton() {
+    return cy.get('[data-test="relationsLocations-action-button-create"]');
+  }
 
-    getNameTBox()
-    {
-        return cy.get('[data-test="name-test"]')
-    }
+  getVisitDialogHeader() {
+    return cy.get(".mat-dialog-title");
+  }
 
-    getRelationshipDropDown()
-    {
-        return cy.get('[data-test="mat-select-relationship-test"]')
-    }
+  getNameTBox() {
+    return cy.get('[data-test="name-test"]');
+  }
 
-    getSelectRelationshipDropDown()
-    {
-        return cy.get('[data-test="relationship-Sister"]')
-    } 
+  getRelationshipDropDown() {
+    return cy.get('[data-test="mat-select-relationship-test"]');
+  }
 
-    getAddress()
-    {
-        return cy.get('[data-test="input-address"]')
-    }
+  getSelectRelationshipDropDown() {
+    return cy.get('[data-test="relationship-Sister"]');
+  }
 
-    getAddLocationDialogButton()
-    {
-        return cy.get('[data-test="form-table-dialog-submit-button"]')
-    }
+  getAddress() {
+    return cy.get('[data-test="input-address"]');
+  }
 
-    getCancelButton()
-    {
-        return cy.get('[data-test="form-table-dialog-close-button"]')
-    }
+  getAddLocationDialogButton() {
+    return cy.get('[data-test="form-table-dialog-submit-button"]');
+  }
 
-    getVisitDetailsGridName()
-    {
-        return cy.get('[data-test="mat-cell-0"]')
-    }
+  getCancelButton() {
+    return cy.get('[data-test="form-table-dialog-close-button"]');
+  }
 
-    getVisitDetailsGridRelationship()
-    {
-        return cy.get('[data-test="mat-cell-1"]')
-    }
+  getVisitDetailsGridName() {
+    return cy.get('[data-test="mat-cell-0"]');
+  }
 
-    getVisitDetailsGridAddress()
-    {
-        return cy.get('[data-test="mat-cell-2"]')
-    }
+  getVisitDetailsGridRelationship() {
+    return cy.get('[data-test="mat-cell-1"]');
+  }
 
-    getVisitDetailsGridEditButton()
-    {
-        return cy.get('[data-test="action-button-edit-0"]')
-    }
+  getVisitDetailsGridAddress() {
+    return cy.get('[data-test="mat-cell-2"]');
+  }
 
-    getVisitDetailsGridDeleteButton()
-    {
-        return cy.get('[data-test="action-button-delete-0"]')
-    }
+  getVisitDetailsGridEditButton() {
+    return cy.get('[data-test="action-button-edit-0"]');
+  }
 
-    getSaveAndContinueButton()
-    {
-        return cy.get('[data-test="primary-button"]')
-    }
+  getVisitDetailsGridDeleteButton() {
+    return cy.get('[data-test="action-button-delete-0"]');
+  }
+
+  getSaveAndContinueButton() {
+    return cy.get('[data-test="primary-button"]');
+  }
 }
 
-export default VisitDetailsPage
+export default VisitDetailsPage;
