@@ -27,5 +27,5 @@ videos
 e2eTest.spec.js
 
 #ignore example.json
-fixture/example.json
+cypress/fixture/example.json
 
