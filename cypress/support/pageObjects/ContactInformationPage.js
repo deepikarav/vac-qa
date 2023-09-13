@@ -5,54 +5,64 @@ class ContactInformationPage{
         return cy.get('h1')
     }
     
-    getPOTBox()
+    getCountryDropDown()
     {
-        return cy.get('[data-test="mailingPoBox-test"]')
+        return cy.get("[data-test='currentCountry-lbl']")
     }
 
     getApartmentUnitTBox()
     {
-        return cy.get('[data-test="mailingUnit-test"]')
+        return cy.get('[data-test="currentUnit-test"]')
     }
 
-    getAddressTBox()
+    getStreetNumberTBox()
     {
-        return cy.get('[data-test="mailingAddress-test"]')
+        return cy.get('[data-test="currentStreetNumber-test"]')
+    }
+
+    getStreetNameTBox()
+    {
+        return cy.get('[data-test="currentStreetName-test"]')
     }
 
     getCityTownTBox()
     {
-        return cy.get('[data-test="mailingCity-test"]')
-    }
-
-    getCountryDropDown()
-    {
-        return cy.get("[data-test='mat-select-mailingCountry-test']")
-    }
-
-    getCountryDropDownInput()
-    {
-        return cy.get('[data-test="mailingCountry-Canada"] > .mat-option-text')
+        return cy.get('[data-test="currentCity-test"]')
     }
 
     getProvinceTBox()
     {
-        return cy.get('[data-test="mailingProvince-test"]')
+        return cy.get('[data-test="currentProvince-lbl"]')
+    }
+
+    getStateTBox()
+    {
+        return cy.get('[data-test="currentState-lbl"]')
     }
 
     getPostalCodeTBox()
     {
-        return cy.get('[data-test="mailingPostalCode-test"]')
+        return cy.get('[data-test="currentPostalCode-test"]')
+    }
+
+    getPostalCodeCanadaTBox()
+    {
+        return cy.get('[data-test="currentPostalCodeCanada-test"]')
+    }
+
+    getPostalCodeUSTBox()
+    {
+        return cy.get('[data-test="currentZipCode-test"]')
     }
 
     getDistrictTBox()
     {
-        return cy.get('[data-test="mailingDistrict-test"]')
+        return cy.get('[data-test="currentDistrict-test"]')
     }
 
     getMailingAddressRadio()
     {
-        return cy.get('[data-test="isSameAddressLabel-Yes"]')
+        return cy.get('[data-test="isSameAddress-Yes"]')
     }
 
     getEmailAddressTBox()
@@ -62,32 +72,22 @@ class ContactInformationPage{
 
     getAddTelephoneButton()
     {
-        return cy.get('.button1')
+        return cy.get('[date-test="addButton"]')
     }
 
-    getTelephoneFromGrid()
-    {
-        return cy.get('[data-test="mat-cell-4"]').eq(-1)
-    }
-
-    getSaveButton()
-    {
-        return cy.get('[data-test="primary-button"]')
-    }
-
-    getPrimaryNumberRadio()
+    getTelephonePrimaryRadio()
     {
         return cy.get('[data-test="primary-Yes"]')
-    }
-
-    getTelephoneCountry()
-    {
-        return cy.get('[data-test="country-Canada/US"]')
     }
 
     getTelephoneType()
     {
         return cy.get('[data-test="teleType-Cellular"]')
+    }
+
+    getTelephoneCountryRadio()
+    {
+        return cy.get('[data-test="country-Other"]')
     }
 
     getDialCodeTBox()
@@ -102,12 +102,17 @@ class ContactInformationPage{
 
     getExtensionTBox()
     {
-        return cy.get('[data-test="extention-test"]')
+        return cy.get('[data-test="extensionCanada-test"]')
     }
 
-    getAddNumberButton()
+    getSaveTelephoneButton()
     {
-        return cy.get("button[type='submit']")
+        return cy.get('[data-test="form-table-dialog-submit-button"]')
+    }
+
+    getFaxNumberRadio()
+    {
+        return cy.get('[data-test="hasFax-No"]')
     }
 
     getCancelButton()
@@ -120,6 +125,10 @@ class ContactInformationPage{
         return cy.get('.mat-icon.notranslate.close-x-btn.material-icons.mat-icon-no-color')
     }
 
+    getSaveAndContinueButton()
+    {
+        return cy.get('#save-and-continue-lbl')
+    }
 }
 
 export default ContactInformationPage

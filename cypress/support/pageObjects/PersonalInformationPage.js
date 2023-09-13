@@ -20,14 +20,24 @@ class PersonalInformationPage
         return cy.get('[data-test="firstName-test"]')
     }
 
-    getPastNameNoRadio()
+    getPastNameRadio()
     {
         return cy.get('[data-test="pastName-No"]')
     }
 
-    getGenderFemaleRadio()
+    getAddButtonLink()
     {
-        return cy.get('[data-test="gender-Female"]')
+        return cy.get('[date-test="addButton"]')
+    }
+
+    getAddNameButton()
+    {
+        return cy.get('#get-submit-lbl')
+    }
+
+    getGenderRadio()
+    {
+        return cy.get('[data-test="gender-Male"]')
     }
 
     getDobYearTBox()
@@ -72,12 +82,24 @@ class PersonalInformationPage
     
     getCountryOfResidenceStatusDropdown()
     {
-        return cy.get('#mat-select-value-7')
+        return cy.get('[data-test="mat-select-currentCountryIMMStatus-test"]')
     }
 
     getCountryOfResidenceStatusOption()
     {
-        return cy.get('[data-test="currentCountryIMMStatus-Permanent resident"]')
+        return cy.get('[data-test="currentCountryIMMStatus-Citizen"]')
+    }
+    
+    getCountryOfApplicationRadio()
+
+    {
+        return cy.get('[data-test="isApplyingSameASResidentCountry-Yes"]')
+    }
+
+    getCountryOfPastResidenceRadio()
+
+    {
+        return cy.get('[data-test="isLivedOtherCountries-No"]')
     }
     
     getSaveAndContinueButton()

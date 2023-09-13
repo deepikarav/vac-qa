@@ -7,12 +7,12 @@ class SummaryPage
 
     getExpandAllButton()
     {
-        return cy.get('[data-test="basic-button"]').eq(2)
+        return cy.get('[datatest="expand-button"]')
     }
 
     getConfirmButton()
     {
-        return cy.get('[data-test="primary-button"]').eq(2)
+        return cy.get('[date-test="continue"]')
     }
 }
  
