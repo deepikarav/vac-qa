@@ -69,7 +69,7 @@ describe("Test Suite", function () {
 
     personalInformationPage.getGenderRadio().click();
     personalInformationPage
-      .getDobYearTBox()
+      .getDobYearTBox() 
       .first()
       .type(this.data.year)
       .should("have.value", this.data.year);
