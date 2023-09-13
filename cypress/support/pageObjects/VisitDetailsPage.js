@@ -4,13 +4,26 @@ class VisitDetailsPage {
   getVisitDetailsHeader() {
     return cy.get("h1");
   }
+  getVisaCategoryButton(category) {
+    return cy
+      .get(`[data-test='visaType-${category}']`)
+      .find(".mat-radio-container");
+  }
 
   getVisitPurposeDropDown() {
     return cy.get('[data-test="mat-select-purpose-test"]');
   }
 
-  getVisitPurposeOption() {
-    cy.get('[data-test="purpose-Tourism"]');
+  getVisitPurposeOption(purpose) {
+    return cy.get(`[data-test="purpose-${purpose}"]`);
+  }
+
+  getOtherPurposeDescription() {
+    return cy.get('[data-test="otherPurpose-test"]');
+  }
+
+  getUCITextbox() {
+    return cy.get('[data-test="uci-test"]');
   }
 
   getFromYearDropDown() {
@@ -42,7 +55,7 @@ class VisitDetailsPage {
   }
 
   getAddLocationButton() {
-    return cy.get('[data-test="relationsLocations-action-button-create"]');
+    return cy.contains("Add address");
   }
 
   getVisitDialogHeader() {
@@ -60,7 +73,9 @@ class VisitDetailsPage {
   getSelectRelationshipDropDown() {
     return cy.get('[data-test="relationship-Sister"]');
   }
-
+  getSelectRelationshipOption(relation) {
+    return cy.get(`[data-test="relationship-${relation}"]`);
+  }
   getAddress() {
     return cy.get('[data-test="input-address"]');
   }
@@ -86,15 +101,31 @@ class VisitDetailsPage {
   }
 
   getVisitDetailsGridEditButton() {
-    return cy.get('[data-test="action-button-edit-0"]');
+    return cy.get('[datatest="action-button-edit"]').find("button");
   }
 
   getVisitDetailsGridDeleteButton() {
-    return cy.get('[data-test="action-button-delete-0"]');
+    return cy.get('[datatest="action-button-delete"]').find("button");
+  }
+
+  getDeleteEntryPopUpDeleteButton() {
+    return cy.get("#delete-lbl");
+  }
+
+  getDeleteEntryPopUpCancelButton() {
+    return cy.get("#close-lbl");
+  }
+
+  getDeleteEntryPopUpCloseButton() {
+    return cy.get("button[class='close']");
+  }
+
+  getVisitDetailsBackButton() {
+    return cy.get("[date-test='backButton']").find("button");
   }
 
   getSaveAndContinueButton() {
-    return cy.get('[data-test="primary-button"]');
+    return cy.get("#save-and-continue-lbl");
   }
 }
 
