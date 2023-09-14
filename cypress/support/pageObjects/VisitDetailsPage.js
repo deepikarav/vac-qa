@@ -66,13 +66,13 @@ class VisitDetailsPage {
     return cy.get('[data-test="name-test"]');
   }
 
-  getRelationshipDropDown() {
-    return cy.get('[data-test="mat-select-relationshipTransit-test"]');
+  getRelationshipDropDown(visa) {
+    return cy.get(`[data-test="mat-select-relationship${visa}-test"]`);
     //return cy.get("[id^='mat-select-value-']").eq(2);
   }
 
   getSelectRelationshipOption(relation) {
-    return cy.get(`[relationshipTransit-${relation}"]`);
+    return cy.get(`[data-test="relationship${relation}"]`);
     //return cy.contains(` ${relation} `);
   }
   getAddress() {

@@ -85,16 +85,23 @@ describe("Test Suite", function () {
           .getNameTBox()
           .clear()
           .type(this.data.visitLocationName);
+        if (this.data.visaCategory.includes("Transit visa")) {
+          visitDetailsPage
+            .getRelationshipDropDown("Transit")
+            .click({ force: true });
 
-        visitDetailsPage
-          .getRelationshipDropDown()
-          .click({ force: true })
-          .wait(5000)
-          .then(() => {
-            visitDetailsPage
-              .getSelectRelationshipOption(this.data.visitLocationRelationship)
-              .click({ force: true });
-          });
+          visitDetailsPage
+            .getSelectRelationshipOption(
+              `Transit-${this.data.visitLocationRelationship}`
+            )
+            .click({ force: true });
+        } else {
+          visitDetailsPage.getRelationshipDropDown("").click({ force: true });
+
+          visitDetailsPage
+            .getSelectRelationshipOption(this.data.visitLocationRelationship)
+            .click({ force: true });
+        }
 
         visitDetailsPage
           .getAddress()
@@ -104,8 +111,9 @@ describe("Test Suite", function () {
 
         visitDetailsPage.getAddLocationDialogButton().click();
       });
-
+    cy.wait(2000);
     visitDetailsPage.getSaveAndContinueButton().click();
+    cy.wait(2000);
 
     cy.url().should("include", "education-history");
     cy.log("Visit details Form successfully completed");
