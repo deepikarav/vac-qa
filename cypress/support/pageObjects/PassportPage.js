@@ -12,12 +12,7 @@ class PassportPage
 
     getCountryDropDown()
     {
-        return cy.get('[data-test="mat-select-countryCode-test"]')
-    }
-
-    getCountryIssueSelect()
-    {
-        return cy.get('[data-test="countryCode-Canada"]')
+        return cy.get('[data-test="countryCode-lbl"]')
     }
 
     getIssueYearDropDown()
@@ -50,16 +45,6 @@ class PassportPage
         return cy.get('[data-test="day-lbl"]').eq(1)
     }
 
-    getPassportTypeDropDown()
-    {
-        return cy.get('[data-test="mat-select-type-test"]')
-    }
-
-    getDiplomaticTypeSelect()
-    {
-        return cy.get('[data-test="type-Diplomatic"]')
-    }
-
     getTaiwanRadio()
     {
         return cy.get('[data-test="isTaiwan-Yes"]')
@@ -72,7 +57,7 @@ class PassportPage
 
     getNationalIDRadio()
     {
-        return cy.get('[data-test="isNationalId-Yes"]')
+        return cy.get('[data-test="isNationalId-No"]')
     }
 
     getNationalIDDocumentNumberTBox()
@@ -122,7 +107,7 @@ class PassportPage
 
     getUSPRStatusRadio()
     {
-        return cy.get('[data-test="isGreencard-Yes"]')
+        return cy.get('[data-test="isGreencard-No"]')
     }
 
     getUSPRDocumentNumberTBox()
@@ -147,7 +132,7 @@ class PassportPage
 
     getSaveAndContinueButton()
     {
-        return cy.get('[data-test="primary-button"]')
+        return cy.get('#save-and-continue-lbl')
     }
 
 }

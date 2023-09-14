@@ -4,7 +4,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 8000,
   reporter: "mochawesome",
   env: {
-    url: "https://vac-crdv-dev.apps.cic.gc.ca/en/",
+    url: 'https://vac-crdv-dev.apps.cic.gc.ca/en/',
   },
   projectId: "tuhfw1",
   e2e: {

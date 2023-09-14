@@ -45,19 +45,19 @@ class Navigation
         return cy.get('.contentsubitems').eq(9)
     }
 
+    getNavbarSummary()
+    {
+        return cy.get('.mat-list-item-content').eq(10)
+    }
+
     getNavbarDocuments()
     {
         return cy.get('.mat-list-item-content').eq(11)
     }
 
-    getNavbarSummary()
-    {
-        return cy.get('.mat-list-item-content').eq(12)
-    }
-
     getNavbarAdditionalInfo()
     {
-        return cy.get('.mat-list-item-content').eq()
+        return cy.get('.mat-list-item-content').eq(12)
     }
 
 }

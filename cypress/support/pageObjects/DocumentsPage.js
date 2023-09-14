@@ -1,30 +1,27 @@
-class DocumentsPage
-{
-    getHeaderText()
+class DocumentsPage {
+  getHeaderText() {
+    return cy.get("h1").eq(0);
+  }
+
+  getExpandAllButton()
     {
-        return cy.get('h1').eq(0)
+        return cy.get('[datatest="expand-button"]')
     }
 
-    getPassportUploadButton()
-    {
-        return cy.get('[data-test="basic-button"]').eq(3)
-    }
+  getPassportUploadButton() {
+    return cy.get("#docId-10");
+  }
 
-    getDocumentNameText()
-    {
-        return cy.get('.body2.file-info',{timeout : 1000}).eq(0)
-    }
+  getDocumentNameText() {
+    return cy.get(".body2.file-info", { timeout: 1000 }).eq(0);
+  }
 
-    getDocumentDeleteButton()
-    {
-        return cy.get('[data-test="basic-button"]').eq(3)
-    }
+  getDocumentDeleteButton() {
+    return cy.get("");
+  }
 
-    getSaveAndContinueButton()
-    {
-        return cy.get('[data-test="primary-button"]')
-    }
-
+  getSaveAndContinueButton() {
+    return cy.get('[date-test="continue"]');
+  }
 }
-
-export default DocumentsPage
+export default DocumentsPage;
