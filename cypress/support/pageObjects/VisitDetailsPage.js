@@ -68,6 +68,7 @@ class VisitDetailsPage {
 
   getRelationshipDropDown() {
     return cy.get('[data-test="mat-select-relationshipTransit-test"]');
+    //return cy.get("[id^='mat-select-value-']").eq(2);
   }
 
   getSelectRelationshipOption(relation) {

@@ -24,7 +24,7 @@ describe("Test Suite", function () {
 
     signInPage.getContinueButton().click();
 
-    signInPage.getVerificationCodeTBox().should("be.visible").wait(20000);
+    signInPage.getVerificationCodeTBox().should("be.visible").wait(2000);
     cy.get("#mfa-code_id").find("input").clear().type("101010");
     signInPage.getSignInButton().click();
     cy.url().should("include", "/termsconditions");
