@@ -24,7 +24,7 @@ describe("Test Suite", function () {
 
     signInPage.getContinueButton().click();
 
-    signInPage.getVerificationCodeTBox().should("be.visible").wait(2000);
+    signInPage.getVerificationCodeTBox().should("be.visible").wait(20000);
     cy.get("#mfa-code_id").find("input").clear().type("101010");
     signInPage.getSignInButton().click();
     cy.url().should("include", "/termsconditions");
@@ -48,7 +48,7 @@ describe("Test Suite", function () {
     visitDetailsPage
       .getVisaCategoryButton(this.data.visaCategory)
       .click({ force: true });
-    /*
+
     if (this.data.visaCategory.includes("Visitor visa")) {
       visitDetailsPage.getVisitPurposeDropDown().click();
       visitDetailsPage.getVisitPurposeOption(this.data.visitPurpose).click();
@@ -73,7 +73,7 @@ describe("Test Suite", function () {
     visitDetailsPage.getToYearDropDown().clear().type(this.data.visitToYear);
     visitDetailsPage.getToMonthDropDown().clear().type(this.data.visitToMonth);
     visitDetailsPage.getToDayDropDown().clear().type(this.data.visitToDay);
-*/
+
     visitDetailsPage
       .getAddLocationButton()
       .click()
@@ -86,8 +86,6 @@ describe("Test Suite", function () {
           .clear()
           .type(this.data.visitLocationName);
 
-        // cy.pause();
-        //cy.wait(5000);
         visitDetailsPage
           .getRelationshipDropDown()
           .click({ force: true })

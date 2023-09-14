@@ -71,8 +71,8 @@ class VisitDetailsPage {
   }
 
   getSelectRelationshipOption(relation) {
-    //return cy.get(`[data-test="relationshipTransit-${relation}"]`);
-    return cy.contains(` ${relation} `);
+    return cy.get(`[relationshipTransit-${relation}"]`);
+    //return cy.contains(` ${relation} `);
   }
   getAddress() {
     return cy.get('[data-test="input-address"]');
