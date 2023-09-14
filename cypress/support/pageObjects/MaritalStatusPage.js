@@ -78,5 +78,5 @@ class MaritalStatusPage
     {
         return cy.get('#save-and-continue-lbl')
     }
-
+}
 export default MaritalStatusPage

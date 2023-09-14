@@ -1,75 +1,63 @@
-class BackgroundInformationPage
-{
-    getHeaderText()
-    {
-        return cy.get('h1')
-    }
+class BackgroundInformationPage {
+  getHeaderText() {
+    return cy.get("h1");
+  }
 
-    getAgeGroupRadio()
-    {
-        return cy.get('[data-test="is18OrOlder-Yes"]')
-    }
+  getTuberculosisRadio(dynamicInput) {
+    return cy.get('[data-test="isTuberculosis_1-${dynamicInput}"]');
+  }
 
-    getTuberulosisRadio()
-    {
-        return cy.get('[data-test="isTuberculosis_1-No"]')
-    }
+  getDisorderRadio(dynamicInput) {
+    return cy.get('[data-test="isDisorder_1-${dynamicInput}"]');
+  }
 
-    getDisorderRadio()
-    {
-        return cy.get('[data-test="isDisorder_1-No"]')
-    }
+  getDetailsOneTBox() {
+    return cy.get('[data-test="details_1-test"]');
+  }
 
-    getRemainedBeyondRadio()
-    {
-        return cy.get('[data-test="isRemainedBeyond_2-No"]')
-    }
+  getRemainedBeyondRadio($dynamicInput) {
+    return cy.get('[data-test="isRemainedBeyond_2-${dynamicInput}"]');
+  }
 
-    getRefusedToLeaveRadio()
-    {
-        return cy.get('[data-test="isRefusedToLeave_2-Yes"]')
-    }
+  getRefusedToLeaveRadio(dynamicInput) {
+    return cy.get('[data-test="isRefusedToLeave_2-${dynamicInput}"]');
+  }
 
-    getPreviouslyAppliedRadio()
-    {
-        return cy.get('[data-test="isPreviouslyApplied_2-Yes"]')
-    }
+  getPreviouslyAppliedRadio(dynamicInput) {
+    return cy.get('[data-test="isPreviouslyApplied_2-${dynamicInput}"]');
+  }
 
-    getVisaStatusDetailsTBox()
-    {
-        return cy.get('[data-test="details_2-test"]')
-    }
+  getDetailsTwoTBox() {
+    return cy.get('[data-test="details_2-test"]');
+  }
 
-    getOffenceRadio()
-    {
-        return cy.get('[data-test="isOffence_3-No"]')
-    }
+  getOffenceRadio(dynamicInput) {
+    return cy.get('[data-test="isOffence_3-${dynamicInput}"]');
+  }
 
-    getMilitaryServiceRadio()
-    {
-        return cy.get('[data-test="isServedMilitary_4-Yes"]')
-    }
+  getDetailsThreeTBox() {
+    return cy.get('[data-test="details_3-test"]');
+  }
 
-    getServiceDetailsTBox()
-    {
-        return cy.get('[data-test="details_4-test"]')
-    }
+  getMilitaryServiceRadio(dynamicInput) {
+    return cy.get('[data-test="isServedMilitary_4-${dynamicInput}"]');
+  }
 
-    getPoliticalRadio()
-    {
-        return cy.get('[data-test="isPoliticalPartyMember_5-Yes"]')
-    }
+  getDetailsFourTBox() {
+    return cy.get('[data-test="details_4-test"]');
+  }
 
-    getWitnessedRadio()
-    {
-        return cy.get('[data-test="isWitnessed_6-Yes"]')
-    }
+  getPoliticalRadio(dynamicInput) {
+    return cy.get('[data-test="isPoliticalPartyMember_5-${dynamicInput}"]');
+  }
 
-    getSaveAndContinueButton()
-    {
-        return cy.get('[data-test="primary-button"]')
-    }
+  getWitnessedRadio(dynamicInput) {
+    return cy.get('[data-test="isWitnessed_6-${dynamicInput}"]');
+  }
 
+  getSaveAndContinueButton() {
+    return cy.get("#save-and-continue-lbl");
+  }
 }
- 
-export default BackgroundInformationPage
+
+export default BackgroundInformationPage;

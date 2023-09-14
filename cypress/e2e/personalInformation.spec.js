@@ -36,7 +36,6 @@ describe("Test Suite", function () {
         cy.wait(2000);
         cy.url().should("include", "/client/general/personal-details");
       });
-
     personalInformationPage
       .getHeader()
       .should("have.text", this.data.generalInformationPageHeader);
@@ -69,7 +68,7 @@ describe("Test Suite", function () {
 
     personalInformationPage.getGenderRadio().click();
     personalInformationPage
-      .getDobYearTBox() 
+      .getDobYearTBox()
       .first()
       .type(this.data.year)
       .should("have.value", this.data.year);
