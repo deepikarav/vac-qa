@@ -22,7 +22,7 @@ class PersonalInformationPage
 
     getPastNameRadio()
     {
-        return cy.get('[data-test="pastName-No"]')
+        return cy.get('[data-test="pastName-Yes"]')
     }
 
     getAddButtonLink()

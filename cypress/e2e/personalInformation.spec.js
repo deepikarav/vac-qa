@@ -36,7 +36,6 @@ describe("Test Suite", function () {
         cy.wait(2000);
         cy.url().should("include", "/client/general/personal-details");
       });
-
     personalInformationPage
       .getHeader()
       .should("have.text", this.data.generalInformationPageHeader);
