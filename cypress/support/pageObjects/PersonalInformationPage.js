@@ -79,7 +79,17 @@ class PersonalInformationPage
     {
         return cy.get('[data-test="currentCountryIMMStatus-Permanent resident"]')
     }
+
+    getCountryOfApplicationRadio()
+    {
+        return cy.get('[data-test="isApplyingSameASResidentCountry-Yes"]')
+    }
     
+    getPastCountryOfResidence()
+    {
+        return cy.get('[data-test="isLivedOtherCountries-No"]')
+    }
+
     getSaveAndContinueButton()
     {
         return cy.get('#save-and-continue-lbl')
