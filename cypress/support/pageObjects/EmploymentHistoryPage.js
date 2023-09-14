@@ -4,6 +4,7 @@ class EmploymentHistoryPage
     {
         return cy.get('.general-info')
     }
+    
 
     getEmploymentHistoryYesRadio()
     {
