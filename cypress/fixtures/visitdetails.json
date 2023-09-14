@@ -1,0 +1,20 @@
+{
+  "signInPageTitleEn" : "IRCC Visa Application Centre Portal",
+  "signInPageSectionTitleEn" : "Sign in",
+  "signInUserName" : "tony1234",
+  "signInPassword" :"Trivandrum123", 
+  "visitDetailsPageHeader" : " Visit Details ",
+  "visitFromYear" : "2023",
+  "visitFromMonth" : "June",
+  "visaCategory" : "Visitor visa",
+  "visitFromDay" : "27",
+  "visitToYear" : "2023",
+  "visitToMonth" : "December",
+  "visitToDay" : "22",
+  "visitFunds" : "4500",
+  "visitDialogHeader" : " Add Location ",
+  "visitLocationName" : "Jane Doe",
+  "visitLocationRelationship" : "Sister",
+  "visitLocationAddress" : "8142 Dundonald Avenue Nepean Ottawa ON K1Z6E9",
+  "employmentPageHeader" : " Previous Employment "
+}
