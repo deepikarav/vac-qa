@@ -1,8 +1,7 @@
 import SignInPage from "../support/pageObjects/SignInPage.js";
 import TermsAndConditionsPage from "../support/pageObjects/TermsAndConditionsPage";
 import HomePage from "../support/pageObjects/HomePage.js";
-import SummaryPage from "../support/pageObjects/SummaryPage.js";
-import BackgroundInformationPage from "../support/pageObjects/BackgroundInformationPage.js";
+import AdditionalApplicationInfo from "../support/pageObjects/AdditionalApplicationInfo.js";
 import Navigation from "../support/pageObjects/Navigation.js";
 
 describe("Test Suite", function () {
@@ -10,14 +9,15 @@ describe("Test Suite", function () {
   const termsAndConditionsPage = new TermsAndConditionsPage();
   const homePage = new HomePage();
   const navigation = new Navigation();
-  const summaryPage = new SummaryPage();
-  const backgroundInfoPage = new BackgroundInformationPage();
+  const additionalApplicationInfo = new AdditionalApplicationInfo();
+
   beforeEach(function () {
     cy.fixture("example").then(function (data) {
       this.data = data;
     });
   });
-  it("Summary Screen test", function () {
+
+  it("Additional application information form fill test", function () {
     cy.visit(Cypress.env("url") + "signin");
     signInPage.getUsernameTBox().type(this.data.signInUserName);
     signInPage.getPasswordTBox().type(this.data.signInPassword);
@@ -38,11 +38,25 @@ describe("Test Suite", function () {
         cy.wait(2000);
         cy.url().should("include", "/client/general/personal-details");
       });
-    navigation.getNavbarSummary().click();
-    cy.url().should("include", "/summary");
-    summaryPage.getExpandAllButton().click();
-    summaryPage.getConfirmButton().click();
-    cy.url().should("include", "/documents");
-    cy.log("Application form successfully reviewed");
+    navigation.getNavbarAdditionalInfo().click();
+    cy.url().should("include", "/additional-information").then(function (){
+      if (this.data.iPRMSExists){
+        cy.wait(2000)
+        additionalApplicationInfo.getIPRMSTBox().clear().type(this.data.iPRMSreceipt);
+      }
+      if(this.data.biometricsExists){
+        additionalApplicationInfo.getBiometricsTBox().clear().type(this.data.biometrics);
+      }
+      if(this.data.spcExits)
+      additionalApplicationInfo
+      .getSPCCodeTBox()
+      .clear()
+      .type(this.data.spcCode)
+      .type("{downarrow}")
+      .type("{enter}");
+    })
+    additionalApplicationInfo.getSaveAndContinueButton().click();
+    cy.url().should("include", "/consent");
+    cy.log("Additional application form is successfully completed");
   });
 });

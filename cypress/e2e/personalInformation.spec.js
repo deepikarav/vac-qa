@@ -19,8 +19,8 @@ describe("Test Suite", function () {
     cy.visit(Cypress.env("url") + "signin");
     signInPage.getUsernameTBox().type(this.data.signInUserName);
     signInPage.getPasswordTBox().type(this.data.signInPassword);
-    signInPage.getContinueButton().click();
-    signInPage.getVerificationCodeTBox().should("be.visible").wait(25000);
+    signInPage.getContinueButton().click().wait(2000);
+    signInPage.getVerificationCodeTBox().type(this.data.verificationCode);
     signInPage.getSignInButton().click();
     cy.url().should("include", "/termsconditions");
     termsAndConditionsPage.getAcceptButton().click();
@@ -33,10 +33,9 @@ describe("Test Suite", function () {
       .getNewApplicationLink()
       .click()
       .then(function () {
-        cy.wait(5000);
+        cy.wait(2000);
         cy.url().should("include", "/client/general/personal-details");
       });
-
     personalInformationPage
       .getHeader()
       .should("have.text", this.data.generalInformationPageHeader);
@@ -55,23 +54,31 @@ describe("Test Suite", function () {
       .first()
       .type(this.data.firstName)
       .should("have.value", this.data.firstName);
-    personalInformationPage.getPastNameNoRadio().click();
-    personalInformationPage.getGenderFemaleRadio().click();
+    personalInformationPage.getPastNameRadio().then(($text) => {
+      if ($text.text().includes("Yes")) {
+        personalInformationPage.getPastNameRadio().click();
+        personalInformationPage.getAddButtonLink().first().click();
+        personalInformationPage.getLastNameTBox().clear().last().type("xxx");
+        personalInformationPage.getFirstNameTBox().clear().last().type("yyy");
+        personalInformationPage.getAddNameButton().click();
+      } else {
+        personalInformationPage.getPastNameRadio().click();
+      }
+    });
+
+    personalInformationPage.getGenderRadio().click();
     personalInformationPage
       .getDobYearTBox()
-      .clear({ force: true })
       .first()
       .type(this.data.year)
       .should("have.value", this.data.year);
     personalInformationPage
       .getDobMonthTBox()
-      .clear({ force: true })
       .first()
       .type(this.data.month)
       .should("have.value", this.data.month);
     personalInformationPage
       .getDobDayTBox()
-      .clear({ force: true })
       .first()
       .type(this.data.day)
       .should("have.value", this.data.day);
@@ -85,7 +92,11 @@ describe("Test Suite", function () {
       .clear()
       .type(this.data.birthCity)
       .should("have.value", this.data.birthCity);
-    personalInformationPage.getCitizenshipCountryTBox().click();
+    personalInformationPage
+      .getCitizenshipCountryTBox()
+      .clear()
+      .type(this.data.citizenshipCountry)
+      .should("have.value", this.data.citizenshipCountry);
     personalInformationPage.getAnotherCitizenshipRadio().click();
     personalInformationPage
       .getCountryOfResidenceDropdown()
@@ -94,6 +105,8 @@ describe("Test Suite", function () {
       .should("have.value", this.data.residentCountry);
     personalInformationPage.getCountryOfResidenceStatusDropdown().click();
     personalInformationPage.getCountryOfResidenceStatusOption().click();
+    personalInformationPage.getCountryOfApplicationRadio().click();
+    personalInformationPage.getCountryOfPastResidenceRadio().click();
     personalInformationPage.getSaveAndContinueButton().click();
     cy.url().should("include", "/marital-status");
     cy.log("Personal Information Form is successfully completed");

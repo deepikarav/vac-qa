@@ -25,7 +25,7 @@ describe("Test Suite", function () {
     signInPage.getContinueButton().click();
 
     signInPage.getVerificationCodeTBox().should("be.visible").wait(2000);
-    cy.get("#mfa-code_id").find("input").clear().type("101010");
+    signInPage.getVerificationCodeTBox().type(this.data.verificationCode);
     signInPage.getSignInButton().click();
     cy.url().should("include", "/termsconditions");
     termsAndConditionsPage.getAcceptButton().click();
@@ -49,10 +49,14 @@ describe("Test Suite", function () {
       .getVisaCategoryButton(this.data.visaCategory)
       .click({ force: true });
 
+    if (this.data.visitUCI != null && this.data.visitUCI != "") {
+      visitDetailsPage.getUCITextbox().clear().type(this.data.visitUCI);
+    }
+
     if (this.data.visaCategory.includes("Visitor visa")) {
       visitDetailsPage.getVisitPurposeDropDown().click();
       visitDetailsPage.getVisitPurposeOption(this.data.visitPurpose).click();
-      if (this.data.visaCategory.includes("Other")) {
+      if (this.data.visitPurpose.includes("Other")) {
         visitDetailsPage
           .getOtherPurposeDescription()
           .clear()
@@ -99,7 +103,9 @@ describe("Test Suite", function () {
           visitDetailsPage.getRelationshipDropDown("").click({ force: true });
 
           visitDetailsPage
-            .getSelectRelationshipOption(this.data.visitLocationRelationship)
+            .getSelectRelationshipOption(
+              `-${this.data.visitLocationRelationship}`
+            )
             .click({ force: true });
         }
 
@@ -107,17 +113,17 @@ describe("Test Suite", function () {
           .getAddress()
           .clear()
           .type(`${this.data.visitLocationAddress}`)
-          .wait(5000);
+          .wait(1000);
 
         visitDetailsPage.getAddLocationDialogButton().click();
       });
-    cy.wait(2000);
+    cy.wait(1000);
     visitDetailsPage.getSaveAndContinueButton().click();
-    cy.wait(2000);
+    cy.wait(1000);
 
     cy.url().should("include", "education-history");
     cy.log("Visit details Form successfully completed");
 
-    cy.wait(2000);
+    cy.wait(1000);
   });
 });

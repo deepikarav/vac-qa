@@ -12,7 +12,7 @@ class MaritalStatusPage
     
     getMaritalStatusDropdown()
     {
-        return cy.get('.mat-form-field-infix')
+        return cy.get('[data-test="mat-select-relationshipStatus-test"]')
     }
 
     getMaritalStatusOption()
@@ -22,7 +22,7 @@ class MaritalStatusPage
     
     getPreviousRelationshipRadio()
     {
-        return cy.get('[data-test="isPreviousPartner-Yes"]')
+        return cy.get('[data-test="isPreviousPartner-No"]')
     }
 
     getPreviousSpouseLastNameTBox()
@@ -69,7 +69,14 @@ class MaritalStatusPage
     {
         return cy.get(':nth-child(6) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(3) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="day-lbl"]')
     }
+    getAddRelationshipButton()
+    {
+        return cy.get('#get-submit-lbl')
+    }
 
+    getSaveAndContinueButton()
+    {
+        return cy.get('#save-and-continue-lbl')
+    }
 }
-
 export default MaritalStatusPage
