@@ -1,9 +1,10 @@
-class EmploymentHistoryPage{
-
+class EmploymentHistoryPage
+{
     getHeader()
     {
-        return cy.get('h1')
+        return cy.get('.general-info')
     }
+    
 
     getEmploymentHistoryYesRadio()
     {
@@ -12,7 +13,7 @@ class EmploymentHistoryPage{
 
     getAddEmploymentButton()
     {
-        return cy.get('.button1')
+        return cy.get('.add-item-card > app-button > .mat-focus-indicator > .mat-button-wrapper')
     }
 
     getEmploymentHistoryDialogHeader()
@@ -45,91 +46,35 @@ class EmploymentHistoryPage{
         return cy.get('[data-test$="month-lbl"]').eq(1)
     }
 
-    getCountryDropDown()
-    {
-        return cy.get('[data-test="country-lbl"]')
-    }
-
-    getEmployerAddressTBox()
-    {
-        return cy.get('[data-test="input-address"]')
-    }
-
-    getApartmentNumberTBox()
-    {
-        return cy.get('[data-test="unit-test"]')
-    }
-
-    getCityTBox()
-    {
-        return cy.get('[data-test="city-test"]')
-    }
-
-    getProvinceDropDown()
-    {
-        return cy.get('[data-test="province-lbl"]')
-    }
-
-    getPostalCodeTBox()
-    {
-        return cy.get('[data-test="postalCode-test"]')
-    }
-
-    getJobDesciptionTBox()
-    {
-        return cy.get('[data-test="description-test"]')
-    }
-
-    getJobTitleTBox()
+    getActivityOccupation()
     {
         return cy.get('[data-test="occupation-test"]')
     }
 
-    getSupervisorNameTBox()
+    getCityOfOccupation()
     {
-        return cy.get('[data-test="supervisorName-test"]')
+        return cy.get('[data-test="city-test"]')
     }
-
-    getSupervisorNumberTBox()
+    
+    getCountryDropDown()
     {
-        return cy.get('[data-test="supervisorNumber-test"]')
+        return cy.get('[data-test="country-lbl"]')
     }
-
-    getSubmitButton()
+   
+    getProvinceOfOccupation()
     {
-        return cy.get('[data-test="form-table-dialog-submit-button"]')
+        return cy.get('[data-test="province-lbl"]')
     }
-
-    getEmploymentTableEmployerNameText()
+    
+    getAddCurrentWork()
     {
-        return cy.get(':nth-child(1) > [data-test="mat-cell-0"] > [data-test="mat-cell-0-value"]')
-    }
-
-    getEmploymentTableCountryNameText()
-    {
-        return cy.get(':nth-child(1) > [data-test="mat-cell-3"]')
-    }
-
-    getEmploymentTableSupervisorNumberText()
-    {
-        return cy.get(':nth-child(1) > [data-test="mat-cell-8"] > [data-test="mat-cell-8-value"]')
-    }
-
-    getEmploymentTableGridEdit()
-    {
-        return cy.get('[data-test="action-button-edit-0"]')
-    }
-
-    getEmploymentTableGridDelete()
-    {
-        return cy.get('[data-test="action-button-delete-0"]')
-    }
-
+        return cy.get('#get-submit-lbl')
+    }    
+    
     getSaveAndContinueButton()
     {
-        return cy.get('[data-test="primary-button"]')
+        return cy.get('#save-and-continue-lbl')
     }
     
 }
-
 export default EmploymentHistoryPage
