@@ -1,107 +1,109 @@
-class EducationHistoryPage
-{
+class EducationHistoryPage {
+  getHeader() {
+    return cy.get("h1");
+  }
 
-    getHeader()
-    {
-        return cy.get('h1')
-    }
+  getEducationHistoryRadio(option) {
+    return cy
+      .get(`[data-test="previouslyEducated-${option}"]`)
+      .find("label")
+      .find("span")
+      .eq(0);
+  }
 
-    getEducationHistoryYesRadio()
-    {
-        return cy.get('[data-test="previouslyEducated-Yes"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle')
-    }
+  getEducationHistoryDialogHeader() {
+    return cy.get(".mat-dialog-title");
+  }
+  getAddEducationButton() {
+    return cy.get('[date-test="addButton"]').contains("Add education");
+  }
 
-    getAddEducationButton()
-    {
-        return cy.get('.button1')
-    }
+  getFromYearDropDown() {
+    return cy.get('[data-test="year-lbl"]').eq(0);
+  }
 
-    getEducationHistoryDialogHeader()
-    {
-        return cy.get('.mat-dialog-title')
-    }
+  getFromMonthDropDown() {
+    return cy.get('[data-test$="month-lbl"]').eq(0);
+  }
 
-    getFromYearDropDown()
-    {
-        return cy.get('[data-test="year-lbl"]').eq(0)
-    }
+  getToYearDropDown() {
+    return cy.get('[data-test="year-lbl"]').eq(1);
+  }
 
-    getFromMonthDropDown()
-    {
-        return cy.get('[data-test$="month-lbl"]').eq(0)
-    }
+  getToMonthDropDown() {
+    return cy.get('[data-test$="month-lbl"]').eq(1);
+  }
 
-    getToYearDropDown()
-    {
-        return cy.get('[data-test="year-lbl"]').eq(1)
-    }
+  getOngoingCheckbox() {
+    return cy.get('[data-test="mat-checkbox-ongoing"]').find("span").eq(0);
+  }
 
-    getToMonthDropDown()
-    {
-        return cy.get('[data-test$="month-lbl"]').eq(1)
-    }
+  getInstituteTBox() {
+    return cy.get('[data-test="instituteName-test"]');
+  }
 
-    getInstituteTBox()
-    {
-        return cy.get('[data-test="instituteName-test"]')
-    }
+  getCityTBox() {
+    return cy.get('[data-test="city-test"]');
+  }
 
-    getCityTBox()
-    {
-        return cy.get('[data-test="city-test"]')
-    }
-    
-    getCountryDropDown()
-    {
-        return cy.get('[data-test="country-lbl"]')
-    }
+  getCountryDropDown() {
+    return cy.get('[data-test="country-lbl"]');
+  }
 
-    getMajorDropDown()
-    {
-        return cy.get('[data-test="mat-select-major-test"]')
-    }
+  getFieldDropDown() {
+    return cy.get('[data-test="mat-select-major-test"]');
+  }
 
-    getCompletedStatusRadio()
-    {
-        return cy.get('[data-test="completed-yes"]')
-    }
+  getFieldStudyOption(option) {
+    return cy.get(`[data-test="major-${option}"]`);
+  }
+  /*
+  getCompletedStatusRadio() {
+    return cy.get('[data-test="completed-yes"]');
+  }
+  */
 
-    getSubmitButton()
-    {
-        return cy.get('[data-test="form-table-dialog-submit-button"]')
-    }
+  getEducationProvinceDropdown() {
+    return cy.get('[data-test="province-lbl"]');
+  }
 
-    getEducationTableInstituteNameText()
-    {
-        return cy.get(':nth-child(1) > [data-test="mat-cell-2"] > [data-test="mat-cell-2-value"]')
-    }
+  getEducationStateDropdown() {
+    return cy.get('[data-test="state-lbl"]');
+  }
 
-    getEducationTableCountryNameText()
-    {
-        return cy.get(':nth-child(1) > [data-test="mat-cell-4"] > [data-test="mat-cell-4-value"]')
-    }
+  getEducationProvince(province) {
+    return cy.contains(` ${province} `);
+  }
+  getEducationState(state) {
+    return cy.contains(` ${state} `);
+  }
 
-    getEducationTableMajorText()
-    {
-        return cy.get(':nth-child(1) > [data-test="mat-cell-5"] > [data-test="mat-cell-5-value"]')
-    }
+  getEducationTableInstituteNameText() {
+    return cy.get('[data-test="mat-cell-0-value"]');
+  }
 
+  getEducationTableCountryNameText() {
+    return cy.get('[data-test="mat-cell-4-value"]');
+  }
 
-    getEductaionTableGridEdit()
-    {
-        return cy.get('[data-test="action-button-edit-0"]')
-    }
+  getAddEducationHistoryButton() {
+    return cy.get('[data-test="form-table-dialog-submit-button"]');
+  }
+  getEducationTableMajorText() {
+    return cy.get('[data-test="mat-cell-1-value"]');
+  }
 
-    getEductaionTableGridDelete()
-    {
-        return cy.get('[data-test="action-button-delete-0"]')
-    }
+  getEductaionTableGridEdit() {
+    return cy.get('[data-test="action-button-edit-0"]');
+  }
 
-    getSaveAndContinueButton()
-    {
-        return cy.get('[data-test="primary-button"]')
-    }
-    
+  getEductaionTableGridDelete() {
+    return cy.get('[data-test="action-button-delete-0"]');
+  }
+
+  getSaveAndContinueButton() {
+    return cy.get("#save-and-continue-lbl");
+  }
 }
 
-export default EducationHistoryPage
+export default EducationHistoryPage;
