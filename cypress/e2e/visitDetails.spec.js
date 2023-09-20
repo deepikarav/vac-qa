@@ -21,9 +21,7 @@ describe("Test Suite", function () {
     cy.visit(Cypress.env("url") + "signin");
     signInPage.getUsernameTBox().type(this.data.signInUserName);
     signInPage.getPasswordTBox().type(this.data.signInPassword);
-
     signInPage.getContinueButton().click();
-
     signInPage.getVerificationCodeTBox().should("be.visible").wait(2000);
     signInPage.getVerificationCodeTBox().type(this.data.verificationCode);
     signInPage.getSignInButton().click();
@@ -44,15 +42,12 @@ describe("Test Suite", function () {
     navigation.getNavbarVisitDetails().click();
     cy.url().should("include", this.data.visitDetailsUrl);
     cy.wait(2000);
-
     visitDetailsPage
       .getVisaCategoryButton(this.data.visaCategory)
-      .click({ force: true });
-
+      .click();
     if (this.data.visitUCI != null && this.data.visitUCI != "") {
       visitDetailsPage.getUCITextbox().clear().type(this.data.visitUCI);
     }
-
     if (this.data.visaCategory.includes("Visitor visa")) {
       visitDetailsPage.getVisitPurposeDropDown().click();
       visitDetailsPage.getVisitPurposeOption(this.data.visitPurpose).click();
@@ -64,7 +59,6 @@ describe("Test Suite", function () {
       }
       visitDetailsPage.getFundsTBox().clear().type(this.data.visitFunds);
     }
-
     visitDetailsPage
       .getFromYearDropDown()
       .clear()
@@ -77,7 +71,6 @@ describe("Test Suite", function () {
     visitDetailsPage.getToYearDropDown().clear().type(this.data.visitToYear);
     visitDetailsPage.getToMonthDropDown().clear().type(this.data.visitToMonth);
     visitDetailsPage.getToDayDropDown().clear().type(this.data.visitToDay);
-
     visitDetailsPage
       .getAddLocationButton()
       .click()
@@ -92,38 +85,30 @@ describe("Test Suite", function () {
         if (this.data.visaCategory.includes("Transit visa")) {
           visitDetailsPage
             .getRelationshipDropDown("Transit")
-            .click({ force: true });
-
+            .click();
           visitDetailsPage
             .getSelectRelationshipOption(
               `Transit-${this.data.visitLocationRelationship}`
             )
-            .click({ force: true });
+            .click();
         } else {
-          visitDetailsPage.getRelationshipDropDown("").click({ force: true });
-
+          visitDetailsPage.getRelationshipDropDown("").click();
           visitDetailsPage
             .getSelectRelationshipOption(
               `-${this.data.visitLocationRelationship}`
             )
-            .click({ force: true });
+            .click();
         }
-
         visitDetailsPage
           .getAddress()
           .clear()
           .type(`${this.data.visitLocationAddress}`)
           .wait(1000);
-
         visitDetailsPage.getAddLocationDialogButton().click();
       });
     cy.wait(1000);
     visitDetailsPage.getSaveAndContinueButton().click();
-    cy.wait(1000);
-
     cy.url().should("include", "education-history");
     cy.log("Visit details Form successfully completed");
-
-    cy.wait(1000);
   });
 });

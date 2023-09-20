@@ -65,7 +65,6 @@ describe("Test Suite", function () {
         personalInformationPage.getPastNameRadio().click();
       }
     });
-
     personalInformationPage.getGenderRadio().click();
     personalInformationPage
       .getDobYearTBox()
