@@ -5,14 +5,9 @@ class EmploymentHistoryPage{
         return cy.get('h1')
     }
 
-    getEmploymentHistoryYesRadio()
-    {
-        return cy.get('[data-test="previouslyEmployed-Yes"] > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle')
-    }
-
     getAddEmploymentButton()
     {
-        return cy.get('.button1')
+        return cy.get('[date-test="addButton"]')
     }
 
     getEmploymentHistoryDialogHeader()
@@ -20,7 +15,7 @@ class EmploymentHistoryPage{
         return cy.get('.mat-dialog-title')
     }
 
-    getEmployerTBox()
+    getEmployerNameTBox()
     {
         return cy.get('[data-test="employer-test"]')
     }
@@ -45,19 +40,9 @@ class EmploymentHistoryPage{
         return cy.get('[data-test$="month-lbl"]').eq(1)
     }
 
-    getCountryDropDown()
+    getOccupationTBox()
     {
-        return cy.get('[data-test="country-lbl"]')
-    }
-
-    getEmployerAddressTBox()
-    {
-        return cy.get('[data-test="input-address"]')
-    }
-
-    getApartmentNumberTBox()
-    {
-        return cy.get('[data-test="unit-test"]')
+        return cy.get('[data-test="occupation-test"]')
     }
 
     getCityTBox()
@@ -65,39 +50,24 @@ class EmploymentHistoryPage{
         return cy.get('[data-test="city-test"]')
     }
 
+    getCountryDropDown()
+    {
+        return cy.get('[data-test="country-lbl"]')
+    }
+
     getProvinceDropDown()
     {
         return cy.get('[data-test="province-lbl"]')
     }
 
-    getPostalCodeTBox()
+    getStateDropDown()
     {
-        return cy.get('[data-test="postalCode-test"]')
-    }
-
-    getJobDesciptionTBox()
-    {
-        return cy.get('[data-test="description-test"]')
-    }
-
-    getJobTitleTBox()
-    {
-        return cy.get('[data-test="occupation-test"]')
-    }
-
-    getSupervisorNameTBox()
-    {
-        return cy.get('[data-test="supervisorName-test"]')
-    }
-
-    getSupervisorNumberTBox()
-    {
-        return cy.get('[data-test="supervisorNumber-test"]')
+        return cy.get('[data-test="state-lbl"]')
     }
 
     getSubmitButton()
     {
-        return cy.get('[data-test="form-table-dialog-submit-button"]')
+        return cy.get('#get-submit-lbl')
     }
 
     getEmploymentTableEmployerNameText()
@@ -127,7 +97,7 @@ class EmploymentHistoryPage{
 
     getSaveAndContinueButton()
     {
-        return cy.get('[data-test="primary-button"]')
+        return cy.get('#save-and-continue-lbl')
     }
     
 }

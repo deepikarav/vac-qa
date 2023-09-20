@@ -57,11 +57,10 @@ class EducationHistoryPage {
   getFieldStudyOption(option) {
     return cy.get(`[data-test="major-${option}"]`);
   }
-  /*
+
   getCompletedStatusRadio() {
     return cy.get('[data-test="completed-yes"]');
   }
-  */
 
   getEducationProvinceDropdown() {
     return cy.get('[data-test="province-lbl"]');

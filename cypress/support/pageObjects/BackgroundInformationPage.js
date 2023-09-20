@@ -3,56 +3,56 @@ class BackgroundInformationPage {
     return cy.get("h1");
   }
 
-  getTuberculosisRadio(dynamicInput) {
-    return cy.get('[data-test="isTuberculosis_1-${dynamicInput}"]');
+  getTuberculosisRadio(option) {
+    return cy.get(`[data-test="isTuberculosis_1-${option}"]`);
   }
 
-  getDisorderRadio(dynamicInput) {
-    return cy.get('[data-test="isDisorder_1-${dynamicInput}"]');
+  getDisorderRadio(option) {
+    return cy.get(`[data-test="isDisorder_1-${option}"]`);
   }
 
   getDetailsOneTBox() {
     return cy.get('[data-test="details_1-test"]');
   }
 
-  getRemainedBeyondRadio($dynamicInput) {
-    return cy.get('[data-test="isRemainedBeyond_2-${dynamicInput}"]');
+  getRemainedBeyondRadio(option) {
+    return cy.get(`[data-test="isRemainedBeyond_2-${option}"]`);
   }
 
-  getRefusedToLeaveRadio(dynamicInput) {
-    return cy.get('[data-test="isRefusedToLeave_2-${dynamicInput}"]');
+  getRefusedToLeaveRadio(option) {
+    return cy.get(`[data-test="isRefusedToLeave_2-${option}"]`);
   }
 
-  getPreviouslyAppliedRadio(dynamicInput) {
-    return cy.get('[data-test="isPreviouslyApplied_2-${dynamicInput}"]');
+  getPreviouslyAppliedRadio(option) {
+    return cy.get(`[data-test="isPreviouslyApplied_2-${option}"]`);
   }
 
   getDetailsTwoTBox() {
     return cy.get('[data-test="details_2-test"]');
   }
 
-  getOffenceRadio(dynamicInput) {
-    return cy.get('[data-test="isOffence_3-${dynamicInput}"]');
+  getOffenceRadio(option) {
+    return cy.get(`[data-test="isOffence_3-${option}"]`);
   }
 
   getDetailsThreeTBox() {
     return cy.get('[data-test="details_3-test"]');
   }
 
-  getMilitaryServiceRadio(dynamicInput) {
-    return cy.get('[data-test="isServedMilitary_4-${dynamicInput}"]');
+  getMilitaryServiceRadio(option) {
+    return cy.get(`[data-test="isServedMilitary_4-${option}"]`);
   }
 
   getDetailsFourTBox() {
     return cy.get('[data-test="details_4-test"]');
   }
 
-  getPoliticalRadio(dynamicInput) {
-    return cy.get('[data-test="isPoliticalPartyMember_5-${dynamicInput}"]');
+  getPoliticalRadio(option) {
+    return cy.get(`[data-test="isPoliticalPartyMember_5-${option}"]`);
   }
 
-  getWitnessedRadio(dynamicInput) {
-    return cy.get('[data-test="isWitnessed_6-${dynamicInput}"]');
+  getWitnessedRadio(option) {
+    return cy.get(`[data-test="isWitnessed_6-${option}"]`);
   }
 
   getSaveAndContinueButton() {

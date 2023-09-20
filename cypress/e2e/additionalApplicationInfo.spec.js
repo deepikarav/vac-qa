@@ -21,7 +21,7 @@ describe("Test Suite", function () {
     cy.visit(Cypress.env("url") + "signin");
     signInPage.getUsernameTBox().type(this.data.signInUserName);
     signInPage.getPasswordTBox().type(this.data.signInPassword);
-    signInPage.getContinueButton().click().wait(2000);
+    signInPage.getContinueButton().click().wait(4000);
     signInPage.getVerificationCodeTBox().type(this.data.verificationCode);
     signInPage.getSignInButton().click();
     cy.url().should("include", "/termsconditions");
@@ -40,14 +40,14 @@ describe("Test Suite", function () {
       });
     navigation.getNavbarAdditionalInfo().click();
     cy.url().should("include", "/additional-information").then(function (){
-      if (this.data.iPRMSExists){
+      if (this.data.iPRMSExists == "Y"){
         cy.wait(2000)
         additionalApplicationInfo.getIPRMSTBox().clear().type(this.data.iPRMSreceipt);
       }
-      if(this.data.biometricsExists){
+      if(this.data.biometricsExists == "Y"){
         additionalApplicationInfo.getBiometricsTBox().clear().type(this.data.biometrics);
       }
-      if(this.data.spcExits)
+      if(this.data.spcExits == "Y")
       additionalApplicationInfo
       .getSPCCodeTBox()
       .clear()
