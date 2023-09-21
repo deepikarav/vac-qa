@@ -54,18 +54,24 @@ describe("Test Suite", function () {
       .first()
       .type(this.data.firstName)
       .should("have.value", this.data.firstName);
-    personalInformationPage.getPastNameRadio().then(($text) => {
-      if ($text.text().includes("Yes")) {
-        personalInformationPage.getPastNameRadio().click();
-        personalInformationPage.getAddButtonLink().first().click();
-        personalInformationPage.getLastNameTBox().clear().last().type("xxx");
-        personalInformationPage.getFirstNameTBox().clear().last().type("yyy");
-        personalInformationPage.getAddNameButton().click();
-      } else {
-        personalInformationPage.getPastNameRadio().click();
-      }
-    });
-    personalInformationPage.getGenderRadio().click();
+    personalInformationPage
+      .getPastNameRadio(this.data.pastNameExists)
+      .click()
+      .then(function () {
+        if (this.data.pastNameExists == "Yes") {
+          personalInformationPage.getAddButtonLink().first().click().wait(2000);
+          personalInformationPage
+            .getLastNameTBox()
+            .last()
+            .type(this.data.pastFirstName);
+          personalInformationPage
+            .getFirstNameTBox()
+            .last()
+            .type(this.data.pastLastName);
+          personalInformationPage.getAddNameButton().click();
+        }
+      });
+    personalInformationPage.getGenderRadio(this.data.gender).click();
     personalInformationPage
       .getDobYearTBox()
       .first()
@@ -103,7 +109,9 @@ describe("Test Suite", function () {
       .type(this.data.residentCountry)
       .should("have.value", this.data.residentCountry);
     personalInformationPage.getCountryOfResidenceStatusDropdown().click();
-    personalInformationPage.getCountryOfResidenceStatusOption().click();
+    personalInformationPage
+      .getCountryOfResidenceStatusOption(this.data.residentStatus)
+      .click();
     personalInformationPage.getCountryOfApplicationRadio().click();
     personalInformationPage.getCountryOfPastResidenceRadio().click();
     personalInformationPage.getSaveAndContinueButton().click();

@@ -52,8 +52,8 @@ describe("Test Suite", function () {
       .getMaritalStatusOption()
       .wait(5000)
       .then(function () {
-        maritalStatusPage.getMaritalStatusOption().click();
-        maritalStatusPage.getPreviousRelationshipRadio().then(($text) => {
+        maritalStatusPage.getMaritalStatusOption(maritalStatus).click();
+        maritalStatusPage.getPreviousRelationshipRadio(previousMaritalStatus).then(($text) => {
           if ($text.text().includes("Yes")) {
             maritalStatusPage.getPreviousRelationshipRadio().click();
             maritalStatusPage

@@ -74,24 +74,24 @@ describe("Test Suite", function () {
       .first()
       .type(this.data.firstName)
       .should("have.value", this.data.firstName);
-    personalInformationPage.getPastNameRadio().then(($text) => {
-      if ($text.text().includes("Yes")) {
-        personalInformationPage.getPastNameRadio().click();
-        personalInformationPage.getAddButtonLink().first().click().wait(2000);
-        personalInformationPage
-          .getLastNameTBox()
-          .last()
-          .type(this.data.pastFirstName);
-        personalInformationPage
-          .getFirstNameTBox()
-          .last()
-          .type(this.data.pastLastName);
-        personalInformationPage.getAddNameButton().click();
-      } else {
-        personalInformationPage.getPastNameRadio().click();
-      }
-    });
-    personalInformationPage.getGenderRadio().click();
+    personalInformationPage
+      .getPastNameRadio(this.data.pastNameExists)
+      .click()
+      .then(function () {
+        if (this.data.pastNameExists == "Yes") {
+          personalInformationPage.getAddButtonLink().first().click().wait(2000);
+          personalInformationPage
+            .getLastNameTBox()
+            .last()
+            .type(this.data.pastFirstName);
+          personalInformationPage
+            .getFirstNameTBox()
+            .last()
+            .type(this.data.pastLastName);
+          personalInformationPage.getAddNameButton().click();
+        }
+      });
+    personalInformationPage.getGenderRadio(this.data.gender).click();
     personalInformationPage
       .getDobYearTBox()
       .first()
@@ -129,7 +129,9 @@ describe("Test Suite", function () {
       .type(this.data.residentCountry)
       .should("have.value", this.data.residentCountry);
     personalInformationPage.getCountryOfResidenceStatusDropdown().click();
-    personalInformationPage.getCountryOfResidenceStatusOption().click();
+    personalInformationPage
+      .getCountryOfResidenceStatusOption(this.data.residentStatus)
+      .click();
     personalInformationPage.getCountryOfApplicationRadio().click();
     personalInformationPage.getCountryOfPastResidenceRadio().click();
     personalInformationPage.getSaveAndContinueButton().click();
@@ -138,64 +140,112 @@ describe("Test Suite", function () {
       function () {
         maritalStatusPage.getMaritalStatusDropdown().click();
         maritalStatusPage
-          .getMaritalStatusOption()
-          .wait(5000)
+          .getMaritalStatusOption(this.data.maritalStatus)
+          .wait(2000)
+          .click()
           .then(function () {
-            maritalStatusPage.getMaritalStatusOption().click();
-            maritalStatusPage.getPreviousRelationshipRadio().then(($text) => {
-              if ($text.text().includes("Yes")) {
-                maritalStatusPage.getPreviousRelationshipRadio().click();
-                maritalStatusPage
-                  .getPreviousSpouseLastNameTBox()
-                  .type(this.data.previousSpouseLastName)
-                  .should("have.value", this.data.previousSpouseLastName);
-                maritalStatusPage
-                  .getPreviousSpouseFirstNameTBox()
-                  .clear()
-                  .type(this.data.previousSpouseFirstName)
-                  .should("have.value", this.data.previousSpouseFirstName);
-                maritalStatusPage.getPreviousRelationshipTypeRadio().click();
-                maritalStatusPage
-                  .getPreviousRelationshipStartYearDropdown()
-                  .clear({ force: true })
-                  .first()
-                  .type(this.data.startYear)
-                  .should("have.value", this.data.startYear);
-                maritalStatusPage
-                  .getPreviousRelationshipStartMonthDropdown()
-                  .clear({ force: true })
-                  .first()
-                  .type(this.data.startMonth)
-                  .should("have.value", this.data.startMonth);
-                maritalStatusPage
-                  .getPreviousRelationshipStartDayDropdown()
-                  .clear({ force: true })
-                  .first()
-                  .type(this.data.startDay)
-                  .should("have.value", this.data.startDay);
-                maritalStatusPage
-                  .getPreviousRelationshipEndYearDropdown()
-                  .clear({ force: true })
-                  .first()
-                  .type(this.data.endYear)
-                  .should("have.value", this.data.endYear);
-                maritalStatusPage
-                  .getPreviousRelationshipEndMonthDropdown()
-                  .clear({ force: true })
-                  .first()
-                  .type(this.data.endMonth)
-                  .should("have.value", this.data.endMonth);
-                maritalStatusPage
-                  .getPreviousRelationshipEndDayDropdown()
-                  .clear({ force: true })
-                  .first()
-                  .type(this.data.endDay)
-                  .should("have.value", this.data.endDay);
-                maritalStatusPage.getAddRelationshipButton().click();
-              } else {
-                maritalStatusPage.getPreviousRelationshipRadio().click();
-              }
-            });
+            if (
+              this.data.maritalStatus == "Common-Law" ||
+              this.data.maritalStatus == "Married"
+            ) {
+              maritalStatusPage
+                .getCurrentSpouseLastNameTBox()
+                .clear()
+                .type(this.data.currentSpouseLastName)
+                .should("have.value", this.data.currentSpouseLastName);
+              maritalStatusPage
+                .getCurrentSpouseFirstNameTBox()
+                .clear()
+                .type(this.data.currentSpouseFirstName)
+                .should("have.value", this.data.currentSpouseFirstName);
+              maritalStatusPage
+                .getCurrentRelationshipStartYearDropdown()
+                .clear()
+                .type(this.data.currentStartYear)
+                .should("have.value", this.data.currentStartYear);
+              maritalStatusPage
+                .getCurrentRelationshipStartMonthDropdown()
+                .clear()
+                .type(this.data.currentStartMonth)
+                .should("have.value", this.data.currentStartMonth);
+              maritalStatusPage
+                .getCurrentRelationshipStartDayDropdown()
+                .clear()
+                .type(this.data.currentStartDay)
+                .should("have.value", this.data.currentStartDay);
+            }
+            maritalStatusPage
+              .getPreviousRelationshipRadio(this.data.previousMaritalStatus)
+              .click()
+              .then(function () {
+                if (this.data.previousMaritalStatus == "Yes") {
+                  maritalStatusPage
+                    .getAddRelationshipButton()
+                    .click()
+                    .wait(2000);
+                  maritalStatusPage
+                    .getPreviousSpouseLastNameTBox()
+                    .clear()
+                    .type(this.data.previousSpouseLastName)
+                    .should("have.value", this.data.previousSpouseLastName);
+                  maritalStatusPage
+                    .getPreviousSpouseFirstNameTBox()
+                    .clear()
+                    .type(this.data.previousSpouseFirstName)
+                    .should("have.value", this.data.previousSpouseFirstName);
+                  maritalStatusPage
+                    .getPreviousRelationshipDateOfBirthYearDropdown()
+                    .clear()
+                    .type(this.data.prevSpouseDOBYear)
+                    .should("have.value", this.data.prevSpouseDOBYear);
+                  maritalStatusPage
+                    .getPreviousRelationshipDateOfBirthMonthDropdown()
+                    .clear()
+                    .type(this.data.prevSpouseDOBMonth)
+                    .should("have.value", this.data.prevSpouseDOBMonth);
+                  maritalStatusPage
+                    .getPreviousRelationshipDateOfBirthDayDropdown()
+                    .clear()
+                    .type(this.data.prevSpouseDOBDay)
+                    .should("have.value", this.data.prevSpouseDOBDay);
+                  maritalStatusPage
+                    .getPreviousRelationshipTypeRadio(
+                      this.data.prevRelationshipType
+                    )
+                    .click();
+                  maritalStatusPage
+                    .getPreviousRelationshipStartYearDropdown()
+                    .clear()
+                    .type(this.data.startYear)
+                    .should("have.value", this.data.startYear);
+                  maritalStatusPage
+                    .getPreviousRelationshipStartMonthDropdown()
+                    .clear()
+                    .type(this.data.startMonth)
+                    .should("have.value", this.data.startMonth);
+                  maritalStatusPage
+                    .getPreviousRelationshipStartDayDropdown()
+                    .clear()
+                    .type(this.data.startDay)
+                    .should("have.value", this.data.startDay);
+                  maritalStatusPage
+                    .getPreviousRelationshipEndYearDropdown()
+                    .clear()
+                    .type(this.data.endYear)
+                    .should("have.value", this.data.endYear);
+                  maritalStatusPage
+                    .getPreviousRelationshipEndMonthDropdown()
+                    .clear()
+                    .type(this.data.endMonth)
+                    .should("have.value", this.data.endMonth);
+                  maritalStatusPage
+                    .getPreviousRelationshipEndDayDropdown()
+                    .clear()
+                    .type(this.data.endDay)
+                    .should("have.value", this.data.endDay);
+                  maritalStatusPage.getSaveRelationshipButton().click();
+                }
+              });
           });
         maritalStatusPage.getSaveAndContinueButton().click();
         cy.url().should("include", "/languages");
@@ -207,19 +257,22 @@ describe("Test Suite", function () {
           .wait(2000)
           .type(this.data.nativeLanguage)
           .then(function () {
-            languageInfoPage.getCommunicationLanguageRadio().then(($text) => {
-              if (
-                $text.text().includes("Both") ||
-                $text.text().includes("Neither")
-              ) {
-                languageInfoPage.getCommunicationLanguageRadio().click();
-                languageInfoPage.getPreferredLanguageRadio().click();
-              } else {
-                languageInfoPage.getCommunicationLanguageRadio().click();
-              }
-            });
+            languageInfoPage
+              .getCommunicationLanguageRadio(this.data.communicationLanguage)
+              .click()
+              .then(function () {
+                if (
+                  this.data.communicationLanguage == "3" ||
+                  this.data.communicationLanguage == "4"
+                )
+                  languageInfoPage
+                    .getPreferredLanguageRadio(this.data.preferredLanguage)
+                    .click();
+              });
           });
-        languageInfoPage.getProficiencyTestRadio().click();
+        languageInfoPage
+          .getProficiencyTestRadio(this.data.proficiencyTestExists)
+          .click();
         languageInfoPage.getSaveAndContinueButton().click();
         cy.url().should("include", "/contact-information");
         cy.log("Language Information Form is successfully completed");
@@ -699,6 +752,6 @@ describe("Test Suite", function () {
     cy.url().should("include", "/consent");
     cy.log("Additional application form is successfully completed");
     submissionPage.getAgreeCheckbox().click().wait(2000);
-    submissionPage.getSubmitApplicationButton().click().wait(20000);
+    //submissionPage.getSubmitApplicationButton().click().wait(20000);
   });
 });

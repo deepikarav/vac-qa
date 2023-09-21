@@ -10,20 +10,19 @@ class LanguageInformationPage
         return cy.get("[data-test='nativeLanguage-lbl']")
     }
 
-    getCommunicationLanguageRadio()
+    getCommunicationLanguageRadio(option)
     {
-        //return cy.get("input[value='both']")
-        return cy.get('[data-test="commLanguage-PersonalDetails.Page1.q9EnFrOption1"]') 
+        return cy.get(`[data-test="commLanguage-PersonalDetails.Page1.q9EnFrOption${option}"]`) 
     }
 
-    getPreferredLanguageRadio()
+    getPreferredLanguageRadio(option)
     {
-        return cy.get('[data-test="officialLanguage-English"]')
+        return cy.get(`[data-test="officialLanguage-${option}"]`)
     }
 
-    getProficiencyTestRadio()
+    getProficiencyTestRadio(option)
     {
-        return cy.get('[data-test="langProficiency-No"]')
+        return cy.get(`[data-test="langProficiency-${option}"]`)
     }
     
     getSaveAndContinueButton()
