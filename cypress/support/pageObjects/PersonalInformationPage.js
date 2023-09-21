@@ -20,9 +20,9 @@ class PersonalInformationPage
         return cy.get('[data-test="firstName-test"]')
     }
 
-    getPastNameRadio()
+    getPastNameRadio(option)
     {
-        return cy.get('[data-test="pastName-Yes"]')
+        return cy.get(`[data-test="pastName-${option}"]`)
     }
 
     getAddButtonLink()
@@ -35,9 +35,9 @@ class PersonalInformationPage
         return cy.get('#get-submit-lbl')
     }
 
-    getGenderRadio()
+    getGenderRadio(option)
     {
-        return cy.get('[data-test="gender-Male"]')
+        return cy.get(`[data-test="gender-${option}"]`)
     }
 
     getDobYearTBox()
@@ -85,9 +85,9 @@ class PersonalInformationPage
         return cy.get('[data-test="mat-select-currentCountryIMMStatus-test"]')
     }
 
-    getCountryOfResidenceStatusOption()
+    getCountryOfResidenceStatusOption(option)
     {
-        return cy.get('[data-test="currentCountryIMMStatus-Citizen"]')
+        return cy.get(`[data-test="currentCountryIMMStatus-${option}"]`)
     }
     
     getCountryOfApplicationRadio()

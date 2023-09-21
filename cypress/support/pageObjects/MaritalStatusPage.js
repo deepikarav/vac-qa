@@ -15,61 +15,111 @@ class MaritalStatusPage
         return cy.get('[data-test="mat-select-relationshipStatus-test"]')
     }
 
-    getMaritalStatusOption()
+    getMaritalStatusOption(option)
     {
-        return cy.get('[data-test="relationshipStatus-Single"]')
+        return cy.get(`[data-test="relationshipStatus-${option}"]`)
     }
     
-    getPreviousRelationshipRadio()
+    getCurrentSpouseLastNameTBox()
     {
-        return cy.get('[data-test="isPreviousPartner-No"]')
+        return cy.get('[data-test="lastName-test"]').eq(0)
+    }
+
+    getCurrentSpouseFirstNameTBox()
+    {
+        return cy.get('[data-test="firstName-test"]').eq(0)
+    }
+
+    getCurrentRelationshipTypeRadio(option)
+    {
+        return cy.get(`[data-test="relationshipType-${option}"]`)
+    }
+    
+    getCurrentRelationshipStartYearDropdown()
+    {
+        return cy.get('[data-test="year-lbl"]').eq(0)
+    }
+
+    getCurrentRelationshipStartMonthDropdown()
+    {
+        return cy.get('[data-test="month-lbl"]').eq(0)
+    }
+
+    getCurrentRelationshipStartDayDropdown()
+    {
+        return cy.get('[data-test="day-lbl"]').eq(0)
+    }
+
+    getPreviousRelationshipRadio(option)
+    {
+        return cy.get(`[data-test="isPreviousPartner-${option}"]`)
+    }
+
+    getAddRelationshipButton()
+    {
+        return cy.get('[date-test="addButton"]')
     }
 
     getPreviousSpouseLastNameTBox()
     {
-        return cy.get(':nth-child(7) > .ng-touched > .form-container > :nth-child(2) > [_ngcontent-cju-c227=""] > jlcl-text-field.ng-star-inserted > .tf-container > [data-test="lastName-test"]')
+        return cy.get('[data-test="lastName-test"]').eq(1)
     }
 
     getPreviousSpouseFirstNameTBox()
     {
-        return cy.get(':nth-child(7) > .ng-touched > .form-container > :nth-child(3) > [_ngcontent-xpb-c227=""] > jlcl-text-field.ng-star-inserted > .tf-container > [data-test="firstName-test"]')
+        return cy.get('[data-test="firstName-test"]').eq(1)
     }
 
-    getPreviousRelationshipTypeRadio()
+    getPreviousRelationshipDateOfBirthYearDropdown()
     {
-        return cy.get('[data-test="relationshipType-Married"]')
+        return cy.get('[data-test="year-lbl"]').eq(1)
     }
-    
+
+    getPreviousRelationshipDateOfBirthMonthDropdown()
+    {
+        return cy.get('[data-test="month-lbl"]').eq(1)
+    }
+
+    getPreviousRelationshipDateOfBirthDayDropdown()
+    {
+        return cy.get('[data-test="day-lbl"]').eq(1)
+    }
+
+    getPreviousRelationshipTypeRadio(option)
+    {
+        return cy.get(`[data-test="relationshipType-${option}"]`)
+    }
+
     getPreviousRelationshipStartYearDropdown()
     {
-        return cy.get(':nth-child(7) > .ng-touched > .form-container > :nth-child(5) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(1) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="year-lbl"]')
+        return cy.get('[data-test="year-lbl"]').eq(2)
     }
 
     getPreviousRelationshipStartMonthDropdown()
     {
-        return cy.get(':nth-child(7) > .ng-touched > .form-container > :nth-child(5) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(2) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="month-lbl"]')
+        return cy.get('[data-test="month-lbl"]').eq(2)
     }
 
     getPreviousRelationshipStartDayDropdown()
     {
-        return cy.get(':nth-child(7) > .ng-touched > .form-container > :nth-child(5) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(3) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="day-lbl"]')
+        return cy.get('[data-test="day-lbl"]').eq(2)
     }
 
     getPreviousRelationshipEndYearDropdown()
     {
-        return cy.get(':nth-child(6) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(1) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="year-lbl"]')
+        return cy.get('[data-test="year-lbl"]').eq(3)
     }
 
     getPreviousRelationshipEndMonthDropdown()
     {
-        return cy.get(':nth-child(6) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(2) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="month-lbl"]')
+        return cy.get('[data-test="month-lbl"]').eq(3)
     }
 
     getPreviousRelationshipEndDayDropdown()
     {
-        return cy.get(':nth-child(6) > [_ngcontent-hru-c227=""] > jlcl-datepicker.ng-star-inserted > [_ngcontent-hru-c232=""][ng-reflect-form="[object Object]"] > .datepicker-input-group > :nth-child(3) > span.ng-star-inserted > jlcl-static-autocomplete.ng-star-inserted > .tf-container > [data-test="day-lbl"]')
+        return cy.get('[data-test="day-lbl"]').eq(3)
     }
-    getAddRelationshipButton()
+    getSaveRelationshipButton()
     {
         return cy.get('#get-submit-lbl')
     }
