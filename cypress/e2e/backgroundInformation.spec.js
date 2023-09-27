@@ -118,7 +118,10 @@ describe("Test Suite", function () {
             backgroundInfoPage
               .getDisorderRadio(this.data.disorderRadio)
               .click();
-            if ((this.data.tuberculosisRadio == "Yes") || (this.data.disorderRadio == "Yes")) {
+            if (
+              this.data.tuberculosisRadio == "Yes" ||
+              this.data.disorderRadio == "Yes"
+            ) {
               backgroundInfoPage.getDetailsOneTBox().type(this.data.detailsOne);
             }
           });
@@ -129,7 +132,10 @@ describe("Test Suite", function () {
             backgroundInfoPage
               .getRefusedToLeaveRadio(this.data.refusedToLeaveRadio)
               .click();
-            if ((this.data.remainedBeyondRadio == "Yes") || (this.data.refusedToLeaveRadio == "Yes")) {
+            if (
+              this.data.remainedBeyondRadio == "Yes" ||
+              this.data.refusedToLeaveRadio == "Yes"
+            ) {
               backgroundInfoPage.getDetailsTwoTBox().type(this.data.detailsTwo);
             }
           });

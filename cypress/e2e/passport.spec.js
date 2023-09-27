@@ -49,16 +49,19 @@ describe("Test Suite", function () {
       .click()
       .clear()
       .wait(2000)
-      .type(this.data.passportIssueCountry)
+      .type(this.data.country)
+      .type("{downarrow}")
       .type("{downarrow}")
       .type("{enter}")
       .then(function () {
-          if (this.data.passportIssueCountry.includes("Taiwan")) {
+        passportPage.getCountryDropDown().then(($text) => {
+          if ($text.text().includes("Taiwan")) {
             passportPage.getTaiwanRadio().click();
           }
-          if (this.data.passportIssueCountry.includes("Israel")) {
+          if ($text.text().includes("Israel")) {
             passportPage.getIsraelRadio().click();
           }
+        });
         passportPage.getIssueYearDropDown().clear().type(this.data.issueYear);
         passportPage.getIssueMonthDropDown().clear().type(this.data.issueMonth);
         passportPage.getIssueDayDropDown().clear().type(this.data.issueDay);

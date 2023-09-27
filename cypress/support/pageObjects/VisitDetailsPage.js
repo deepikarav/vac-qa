@@ -1,5 +1,4 @@
 class VisitDetailsPage {
-  //visit details
 
   getVisitDetailsHeader() {
     return cy.get("h1");
@@ -68,13 +67,16 @@ class VisitDetailsPage {
 
   getRelationshipDropDown(visa) {
     return cy.get(`[data-test="mat-select-relationship${visa}-test"]`);
-    //return cy.get("[id^='mat-select-value-']").eq(2);
   }
 
   getSelectRelationshipOption(relation) {
     return cy.get(`[data-test="relationship${relation}"]`);
-    //return cy.contains(` ${relation} `);
   }
+
+  getOtherRealtionshipTBox() {
+    return cy.get('[data-test="other-test"]');
+  }
+
   getAddress() {
     return cy.get('[data-test="input-address"]');
   }

@@ -47,19 +47,22 @@ describe("Test Suite", function () {
       .wait(2000)
       .type(this.data.nativeLanguage)
       .then(function () {
-        languageInfoPage.getCommunicationLanguageRadio().then(($text) => {
-          if (
-            $text.text().includes("Both") ||
-            $text.text().includes("Neither")
-          ) {
-            languageInfoPage.getCommunicationLanguageRadio().click();
-            languageInfoPage.getPreferredLanguageRadio().click();
-          } else {
-            languageInfoPage.getCommunicationLanguageRadio().click();
-          }
-        });
+        languageInfoPage
+          .getCommunicationLanguageRadio(this.data.communicationLanguage)
+          .click()
+          .then(function () {
+            if (
+              this.data.communicationLanguage == "3" ||
+              this.data.communicationLanguage == "4"
+            )
+              languageInfoPage
+                .getPreferredLanguageRadio(this.data.preferredLanguage)
+                .click();
+          });
       });
-    languageInfoPage.getProficiencyTestRadio().click();
+    languageInfoPage
+      .getProficiencyTestRadio(this.data.proficiencyTestExists)
+      .click();
     languageInfoPage.getSaveAndContinueButton().click();
     cy.url().should("include", "/contact-information");
     cy.log("Language Information Form is successfully completed");

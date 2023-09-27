@@ -58,6 +58,10 @@ class EducationHistoryPage {
     return cy.get(`[data-test="major-${option}"]`);
   }
 
+  getFieldStudyOtherTBox(){
+    return cy.get('[data-test="other-test"]')
+  }
+
   getCompletedStatusRadio() {
     return cy.get('[data-test="completed-yes"]');
   }

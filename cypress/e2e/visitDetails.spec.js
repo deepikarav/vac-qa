@@ -42,16 +42,11 @@ describe("Test Suite", function () {
     navigation.getNavbarVisitDetails().click();
     cy.url().should("include", this.data.visitDetailsUrl);
     cy.wait(2000);
-    visitDetailsPage
-      .getVisaCategoryButton(this.data.visaCategory)
-      .click();
-    if (this.data.visitUCI != null && this.data.visitUCI != "") {
-      visitDetailsPage.getUCITextbox().clear().type(this.data.visitUCI);
-    }
+    visitDetailsPage.getVisaCategoryButton(this.data.visaCategory).click();
     if (this.data.visaCategory.includes("Visitor visa")) {
       visitDetailsPage.getVisitPurposeDropDown().click();
       visitDetailsPage.getVisitPurposeOption(this.data.visitPurpose).click();
-      if (this.data.visitPurpose.includes("Other")) {
+      if (this.data.visaCategory.includes("Other")) {
         visitDetailsPage
           .getOtherPurposeDescription()
           .clear()
@@ -83,9 +78,7 @@ describe("Test Suite", function () {
           .clear()
           .type(this.data.visitLocationName);
         if (this.data.visaCategory.includes("Transit visa")) {
-          visitDetailsPage
-            .getRelationshipDropDown("Transit")
-            .click();
+          visitDetailsPage.getRelationshipDropDown("Transit").click();
           visitDetailsPage
             .getSelectRelationshipOption(
               `Transit-${this.data.visitLocationRelationship}`
@@ -98,6 +91,11 @@ describe("Test Suite", function () {
               `-${this.data.visitLocationRelationship}`
             )
             .click();
+        }
+        if (this.data.visitLocationRelationship == "Other") {
+          visitDetailsPage
+            .getOtherRealtionshipTBox()
+            .type(this.data.visitRelationshipOther);
         }
         visitDetailsPage
           .getAddress()

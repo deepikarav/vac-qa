@@ -107,7 +107,6 @@ describe("Test Suite", function () {
       .clear()
       .type(this.data.emailAddress)
       .should("have.value", this.data.emailAddress);
-
     contactInformationPage.getAddTelephoneButton().then(function () {
       if (this.data.telephoneNumberExists) {
         contactInformationPage.getAddTelephoneButton().click();
