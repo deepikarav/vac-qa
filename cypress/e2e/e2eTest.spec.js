@@ -482,7 +482,6 @@ describe("Test Suite", function () {
               .type(this.data.visitLocationName);
             if (this.data.visaCategory.includes("Transit visa")) {
               visitDetailsPage.getRelationshipDropDown("Transit").click();
-
               visitDetailsPage
                 .getSelectRelationshipOption(
                   `Transit-${this.data.visitLocationRelationship}`
@@ -490,12 +489,16 @@ describe("Test Suite", function () {
                 .click();
             } else {
               visitDetailsPage.getRelationshipDropDown("").click();
-
               visitDetailsPage
                 .getSelectRelationshipOption(
                   `-${this.data.visitLocationRelationship}`
                 )
                 .click();
+            }
+            if (this.data.visitLocationRelationship == "Other") {
+              visitDetailsPage
+                .getOtherRealtionshipTBox()
+                .type(this.data.visitRelationshipOther);
             }
             visitDetailsPage
               .getAddress()
@@ -551,17 +554,20 @@ describe("Test Suite", function () {
                 .getCountryDropDown()
                 .clear()
                 .type(this.data.educationCountry);
-
               educationHistoryPage.getFieldDropDown().click();
               educationHistoryPage
                 .getFieldStudyOption(this.data.educationField)
-                .click({ force: true });
+                .click();
+              if (this.data.educationField == "Other") {
+                educationHistoryPage
+                  .getFieldStudyOtherTBox()
+                  .type(this.data.majorOtherDetails);
+              }
               if (this.data.educationCountry === "Canada") {
                 educationHistoryPage
                   .getEducationProvinceDropdown()
                   .clear()
                   .type(this.data.educationProvince);
-                //educationHistoryPage.getEducationProvince(this.data.educationProvince);
               } else if (
                 this.data.educationCountry === "United States of America"
               ) {
@@ -571,7 +577,6 @@ describe("Test Suite", function () {
                   .type(this.data.educationState);
               }
               educationHistoryPage.getAddEducationHistoryButton().click();
-
               educationHistoryPage
                 .getEducationTableInstituteNameText()
                 .should("have.text", this.data.instituteName);
@@ -602,14 +607,18 @@ describe("Test Suite", function () {
               .getFromMonthDropDown()
               .clear()
               .type(this.data.employmentFromMonth);
-            employmentHistoryPage
-              .getToYearDropDown()
-              .clear()
-              .type(this.data.employmentToYear);
-            employmentHistoryPage
-              .getToMonthDropDown()
-              .clear()
-              .type(this.data.employmentToMonth);
+            if (this.data.employmentOngoing) {
+              employmentHistoryPage.getOngoingCheckbox().click();
+            } else {
+              employmentHistoryPage
+                .getToYearDropDown()
+                .clear()
+                .type(this.data.employmentToYear);
+              employmentHistoryPage
+                .getToMonthDropDown()
+                .clear()
+                .type(this.data.employmentToMonth);
+            }
             employmentHistoryPage
               .getOccupationTBox()
               .type(this.data.jobDescription);
@@ -712,18 +721,15 @@ describe("Test Suite", function () {
     summaryPage.getConfirmButton().click();
     cy.url().should("include", "/documents");
     cy.log("Application form successfully reviewed");
-
     documentsPage.getExpandAllButton().click().wait(5000);
     cy.get('input[type="file"]').attachFile("canada-flag.jpeg", {
       timeout: 2000,
     });
     cy.wait(50000);
     //documentsPage.getDocumentNameText().should('contain', this.data.documentName)
-
     documentsPage.getSaveAndContinueButton().click();
     cy.url().should("include", "/additional-information");
     cy.log("Document is successfully uploaded");
-
     cy.url()
       .should("include", "/additional-information")
       .then(function () {

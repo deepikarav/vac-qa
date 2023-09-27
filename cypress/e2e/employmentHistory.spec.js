@@ -56,14 +56,18 @@ describe("Test Suite", function () {
           .getFromMonthDropDown()
           .clear()
           .type(this.data.employmentFromMonth);
-        employmentHistoryPage
-          .getToYearDropDown()
-          .clear()
-          .type(this.data.employmentToYear);
-        employmentHistoryPage
-          .getToMonthDropDown()
-          .clear()
-          .type(this.data.employmentToMonth);
+        if (this.data.employmentOngoing) {
+          employmentHistoryPage.getOngoingCheckbox().click();
+        } else {
+          employmentHistoryPage
+            .getToYearDropDown()
+            .clear()
+            .type(this.data.employmentToYear);
+          employmentHistoryPage
+            .getToMonthDropDown()
+            .clear()
+            .type(this.data.employmentToMonth);
+        }
         employmentHistoryPage
           .getOccupationTBox()
           .type(this.data.jobDescription);
@@ -84,7 +88,9 @@ describe("Test Suite", function () {
                 .type(this.data.employmentProvince)
                 .should("have.value", this.data.employmentProvince);
             }
-            if (this.data.employmentCountry.includes("United States of America")) {
+            if (
+              this.data.employmentCountry.includes("United States of America")
+            ) {
               employmentHistoryPage
                 .getStateDropDown()
                 .click()
@@ -92,7 +98,7 @@ describe("Test Suite", function () {
                 .type(this.data.employmentState)
                 .should("have.value", this.data.employmentState);
             }
-            employmentHistoryPage.getSubmitButton().click()
+            employmentHistoryPage.getSubmitButton().click();
           });
       });
     cy.wait(2000);

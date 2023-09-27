@@ -27,7 +27,11 @@ class EmploymentHistoryPage{
 
     getFromMonthDropDown()
     {
-        return cy.get('[data-test$="month-lbl"]').eq(0)
+        return cy.get('[data-test="month-lbl"]').eq(0)
+    }
+
+    getOngoingCheckbox(){
+        return cy.get('[data-test= "mat-checkbox-ongoing"]')
     }
 
     getToYearDropDown()

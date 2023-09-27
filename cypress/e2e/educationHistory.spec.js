@@ -85,11 +85,15 @@ describe("Test Suite", function () {
             .getCountryDropDown()
             .clear()
             .type(this.data.educationCountry);
-
           educationHistoryPage.getFieldDropDown().click();
           educationHistoryPage
             .getFieldStudyOption(this.data.educationField)
-            .click({ force: true });
+            .click();
+          if (this.data.educationField == "Other") {
+            educationHistoryPage
+              .getFieldStudyOtherTBox()
+              .type(this.data.majorOtherDetails);
+          }
           if (this.data.educationCountry === "Canada") {
             educationHistoryPage
               .getEducationProvinceDropdown()
@@ -104,7 +108,6 @@ describe("Test Suite", function () {
               .type(this.data.educationState);
           }
           educationHistoryPage.getAddEducationHistoryButton().click();
-
           educationHistoryPage
             .getEducationTableInstituteNameText()
             .should("have.text", this.data.instituteName);
